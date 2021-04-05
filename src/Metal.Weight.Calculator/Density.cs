@@ -21,9 +21,9 @@
 
 namespace Metal.Weight.Calculator
 {
-    using System;
-
-    public class Class1
+    public struct Density
     {
+        public const double Steel = 7.85;
+        public const double Aluminium = 2.72;
     }
 }

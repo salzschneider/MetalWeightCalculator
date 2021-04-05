@@ -9,3 +9,9 @@ dotnet_diagnostic.SA1101.severity = none
 # SA1000: Keywords should be spaced correctly
 dotnet_diagnostic.SA1000.severity = none
 
+
+# SA1201: Elements should appear in the correct order
+dotnet_diagnostic.SA1201.severity = none
+
+# xUnit1025: InlineData should be unique within the Theory it belongs to
+dotnet_diagnostic.xUnit1025.severity = warning
