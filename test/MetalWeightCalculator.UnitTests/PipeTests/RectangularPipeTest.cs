@@ -19,9 +19,9 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace Metal.Weight.Calculator.Unit.Tests
+namespace MetalWeightCalculator.UnitTests
 {
-    using Metal.Weight.Calculator;
+    using MetalWeightCalculator;
     using Xunit;
 
     public class RectangularPipeTest

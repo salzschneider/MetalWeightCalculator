@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Metal.Weight.Calculator</name>
+        <name>MetalWeightCalculator</name>
     </assembly>
     <members>
-        <member name="T:Metal.Weight.Calculator.RectangularPipe">
+        <member name="T:MetalWeightCalculator.RectangularPipe">
             <summary>
             Calculating the weight or length of a rectangular pipe made of different metals (steel pipes, stainless steel, copper, etc.).
             </summary>
         </member>
-        <member name="M:Metal.Weight.Calculator.RectangularPipe.CalculateWeight(System.Double,System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:MetalWeightCalculator.RectangularPipe.CalculateWeight(System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Calculating the weight of a rectangular pipe.
             </summary>
@@ -20,7 +20,7 @@
             <param name="density">Density of the metal from which the rectangular pipe is made in g/cm³.</param>
             <returns>Weight of a rectangular pipe in kg.</returns>
         </member>
-        <member name="M:Metal.Weight.Calculator.RectangularPipe.CalculateLength(System.Double,System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:MetalWeightCalculator.RectangularPipe.CalculateLength(System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Calculating the length of a rectangular pipe.
             </summary>
@@ -31,12 +31,12 @@
             <param name="density">Density of the metal from which the rectangular pipe is made in g/cm³.</param>
             <returns>Lenght of a rectangular pipe in millimetre.</returns>
         </member>
-        <member name="T:Metal.Weight.Calculator.RoundPipe">
+        <member name="T:MetalWeightCalculator.RoundPipe">
             <summary>
             Calculating the weight or length of a round pipe made of different metals (steel pipes, stainless steel, copper, etc.).
             </summary>
         </member>
-        <member name="M:Metal.Weight.Calculator.RoundPipe.CalculateWeight(System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:MetalWeightCalculator.RoundPipe.CalculateWeight(System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Calculating the weight of a round pipe.
             </summary>
@@ -46,7 +46,7 @@
             <param name="density">Density of the metal from which the round pipe is made in g/cm³.</param>
             <returns>Weight of a round pipe in kg.</returns>
         </member>
-        <member name="M:Metal.Weight.Calculator.RoundPipe.CalculateLength(System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:MetalWeightCalculator.RoundPipe.CalculateLength(System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Calculating the length of a round pipe.
             </summary>
@@ -56,12 +56,12 @@
             <param name="density">Density of the metal from which the round pipe is made in g/cm³.</param>
             <returns>Lenght of a round pipe in millimetre.</returns>
         </member>
-        <member name="T:Metal.Weight.Calculator.SquarePipe">
+        <member name="T:MetalWeightCalculator.SquarePipe">
             <summary>
             Calculating the weight or length of a square pipe made of different metals (steel pipes, stainless steel, copper, etc.).
             </summary>
         </member>
-        <member name="M:Metal.Weight.Calculator.SquarePipe.CalculateWeight(System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:MetalWeightCalculator.SquarePipe.CalculateWeight(System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Calculating the weight of a square pipe.
             </summary>
@@ -71,7 +71,7 @@
             <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
             <returns>Weight of a square pipe in kg.</returns>
         </member>
-        <member name="M:Metal.Weight.Calculator.SquarePipe.CalculateLength(System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:MetalWeightCalculator.SquarePipe.CalculateLength(System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Calculating the length of a square pipe.
             </summary>

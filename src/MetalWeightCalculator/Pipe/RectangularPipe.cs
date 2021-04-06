@@ -19,39 +19,41 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace Metal.Weight.Calculator
+namespace MetalWeightCalculator
 {
     using System;
 
     /// <summary>
-    /// Calculating the weight or length of a square pipe made of different metals (steel pipes, stainless steel, copper, etc.).
+    /// Calculating the weight or length of a rectangular pipe made of different metals (steel pipes, stainless steel, copper, etc.).
     /// </summary>
-    public static class SquarePipe
+    public static class RectangularPipe
     {
         /// <summary>
-        /// Calculating the weight of a square pipe.
+        /// Calculating the weight of a rectangular pipe.
         /// </summary>
-        /// <param name="side">Profile dimension or side size in millimetre.</param>
+        /// <param name="sideA">Profile dimension A or side A size in millimetre.</param>
+        /// <param name="sideB">Profile dimension B or side B size in millimetre.</param>
         /// <param name="thickness">Thickness in millimetre.</param>
         /// <param name="length">Length in millimetre.</param>
-        /// <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
-        /// <returns>Weight of a square pipe in kg.</returns>
-        public static double CalculateWeight(double side, double thickness, double length, double density)
+        /// <param name="density">Density of the metal from which the rectangular pipe is made in g/cm³.</param>
+        /// <returns>Weight of a rectangular pipe in kg.</returns>
+        public static double CalculateWeight(double sideA, double sideB, double thickness, double length, double density)
         {
-            return (density / 7.850) * 0.0157 * thickness * ((side * 2) - (2.86 * thickness)) * (length / 1000);
+            return (density / 7.850) * 0.0157 * thickness * ((sideA + sideB) - (2.86 * thickness)) * (length / 1000);
         }
 
         /// <summary>
-        /// Calculating the length of a square pipe.
+        /// Calculating the length of a rectangular pipe.
         /// </summary>
-        /// <param name="side">Profile dimension or side size in millimetre.</param>
+        /// <param name="sideA">Profile dimension A or side A size in millimetre.</param>
+        /// <param name="sideB">Profile dimension B or side B size in millimetre.</param>
         /// <param name="thickness">Thickness in millimetre.</param>
         /// <param name="weight">Weight in kilogram.</param>
-        /// <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
-        /// <returns>Lenght of a square pipe in millimetre.</returns>
-        public static double CalculateLength(double side, double thickness, double weight, double density)
+        /// <param name="density">Density of the metal from which the rectangular pipe is made in g/cm³.</param>
+        /// <returns>Lenght of a rectangular pipe in millimetre.</returns>
+        public static double CalculateLength(double sideA, double sideB, double thickness, double weight, double density)
         {
-            return weight / ((density / 7.850) * 0.0157 * thickness * ((side * 2) - (2.86 * thickness))) * 1000;
+            return weight / ((density / 7.850) * 0.0157 * thickness * ((sideA + sideB) - (2.86 * thickness))) * 1000;
         }
     }
 }

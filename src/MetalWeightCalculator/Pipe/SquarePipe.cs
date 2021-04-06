@@ -19,39 +19,39 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace Metal.Weight.Calculator
+namespace MetalWeightCalculator
 {
     using System;
 
     /// <summary>
-    /// Calculating the weight or length of a round pipe made of different metals (steel pipes, stainless steel, copper, etc.).
+    /// Calculating the weight or length of a square pipe made of different metals (steel pipes, stainless steel, copper, etc.).
     /// </summary>
-    public static class RoundPipe
+    public static class SquarePipe
     {
         /// <summary>
-        /// Calculating the weight of a round pipe.
+        /// Calculating the weight of a square pipe.
         /// </summary>
-        /// <param name="diameter">Diameter in millimetre.</param>
+        /// <param name="side">Profile dimension or side size in millimetre.</param>
         /// <param name="thickness">Thickness in millimetre.</param>
         /// <param name="length">Length in millimetre.</param>
-        /// <param name="density">Density of the metal from which the round pipe is made in g/cm³.</param>
-        /// <returns>Weight of a round pipe in kg.</returns>
-        public static double CalculateWeight(double diameter, double thickness, double length, double density)
+        /// <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
+        /// <returns>Weight of a square pipe in kg.</returns>
+        public static double CalculateWeight(double side, double thickness, double length, double density)
         {
-            return Math.PI * (density / 1000) * thickness * (diameter - thickness) * (length / 1000);
+            return (density / 7.850) * 0.0157 * thickness * ((side * 2) - (2.86 * thickness)) * (length / 1000);
         }
 
         /// <summary>
-        /// Calculating the length of a round pipe.
+        /// Calculating the length of a square pipe.
         /// </summary>
-        /// <param name="diameter">Diameter in millimetre.</param>
+        /// <param name="side">Profile dimension or side size in millimetre.</param>
         /// <param name="thickness">Thickness in millimetre.</param>
         /// <param name="weight">Weight in kilogram.</param>
-        /// <param name="density">Density of the metal from which the round pipe is made in g/cm³.</param>
-        /// <returns>Lenght of a round pipe in millimetre.</returns>
-        public static double CalculateLength(double diameter, double thickness, double weight, double density)
+        /// <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
+        /// <returns>Lenght of a square pipe in millimetre.</returns>
+        public static double CalculateLength(double side, double thickness, double weight, double density)
         {
-           return (weight / (Math.PI * (density / 1000) * thickness * (diameter - thickness))) * 1000;
+            return weight / ((density / 7.850) * 0.0157 * thickness * ((side * 2) - (2.86 * thickness))) * 1000;
         }
     }
 }

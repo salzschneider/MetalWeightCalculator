@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Metal.Weight.Calculator.Unit.Tests</name>
+        <name>MetalWeightCalculator.UnitTests</name>
     </assembly>
     <members>
     </members>

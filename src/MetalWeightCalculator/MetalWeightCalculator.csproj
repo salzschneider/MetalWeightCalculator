@@ -4,17 +4,18 @@
     <Summary>Metal Weight Calculator is a fast and simple library for calculating weights of metals.</Summary>
     <Description>Metal Weight Calculator is a fast and simple library for calculating weights of metals.</Description>
     <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
-    <PackageId>Metal.Weight.Calculator</PackageId>
+    <PackageId>MetalWeightCalculator</PackageId>
     <Version>0.1.0</Version>
     <Authors>Péter Sóvágó</Authors>
     <PackageProjectUrl>https://github.com/salzschneider/Metal.Weight.Calculator/wiki</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>MetalWeight;Calculator</PackageTags>
+    <RootNamespace>MetalWeightCalculator</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
-    <DocumentationFile>Metal.Weight.Calculator.xml</DocumentationFile>
+    <DocumentationFile>MetalWeightCalculator.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,14 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <RootNamespace>MetalWeightCalculator.UnitTests</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
-    <DocumentationFile>Metal.Weight.Calculator.Unit.Tests.xml</DocumentationFile>
+    <DocumentationFile>MetalWeightCalculator.UnitTests.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Metal.Weight.Calculator\Metal.Weight.Calculator.csproj" />
+    <ProjectReference Include="..\..\src\MetalWeightCalculator\MetalWeightCalculator.csproj" />
   </ItemGroup>
 
 </Project>
