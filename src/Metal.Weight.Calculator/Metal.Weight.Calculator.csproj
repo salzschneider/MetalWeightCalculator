@@ -1,7 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <Summary>Metal Weight Calculator is a fast and simple library for calculating weights of metals.</Summary>
+    <Description>Metal Weight Calculator is a fast and simple library for calculating weights of metals.</Description>
+    <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
+    <PackageId>Metal.Weight.Calculator</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Péter Sóvágó</Authors>
+    <PackageProjectUrl>https://github.com/salzschneider/Metal.Weight.Calculator/wiki</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>MetalWeight;Calculator</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
