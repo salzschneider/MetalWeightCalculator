@@ -7,7 +7,7 @@
     <PackageId>MetalWeightCalculator</PackageId>
     <Version>0.1.0</Version>
     <Authors>Péter Sóvágó</Authors>
-    <PackageProjectUrl>https://github.com/salzschneider/Metal.Weight.Calculator/wiki</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/salzschneider/MetalWeightCalculator/wiki</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>MetalWeight;Calculator</PackageTags>
     <RootNamespace>MetalWeightCalculator</RootNamespace>
