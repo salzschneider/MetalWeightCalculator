@@ -4,6 +4,33 @@
         <name>Metal.Weight.Calculator</name>
     </assembly>
     <members>
+        <member name="T:Metal.Weight.Calculator.RectangularPipe">
+            <summary>
+            Calculating the weight or length of a rectangular pipe made of different metals (steel pipes, stainless steel, copper, etc.).
+            </summary>
+        </member>
+        <member name="M:Metal.Weight.Calculator.RectangularPipe.CalculateWeight(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Calculating the weight of a rectangular pipe.
+            </summary>
+            <param name="sideA">Profile dimension A or side A size in millimetre.</param>
+            <param name="sideB">Profile dimension B or side B size in millimetre.</param>
+            <param name="thickness">Thickness in millimetre.</param>
+            <param name="length">Length in millimetre.</param>
+            <param name="density">Density of the metal from which the rectangular pipe is made in g/cm³.</param>
+            <returns>Weight of a rectangular pipe in kg.</returns>
+        </member>
+        <member name="M:Metal.Weight.Calculator.RectangularPipe.CalculateLength(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Calculating the length of a rectangular pipe.
+            </summary>
+            <param name="sideA">Profile dimension A or side A size in millimetre.</param>
+            <param name="sideB">Profile dimension B or side B size in millimetre.</param>
+            <param name="thickness">Thickness in millimetre.</param>
+            <param name="weight">Weight in kilogram.</param>
+            <param name="density">Density of the metal from which the rectangular pipe is made in g/cm³.</param>
+            <returns>Lenght of a rectangular pipe in millimetre.</returns>
+        </member>
         <member name="T:Metal.Weight.Calculator.RoundPipe">
             <summary>
             Calculating the weight or length of a round pipe made of different metals (steel pipes, stainless steel, copper, etc.).
