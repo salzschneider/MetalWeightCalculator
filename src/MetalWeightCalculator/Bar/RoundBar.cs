@@ -31,7 +31,7 @@ namespace MetalWeightCalculator
     /// </summary>
     public class RoundBar : Shape
     {
-        private static RoundBarValidator validator = new RoundBarValidator();
+        private static readonly RoundBarValidator Validator = new RoundBarValidator();
 
         private RoundBar()
         {
@@ -48,7 +48,7 @@ namespace MetalWeightCalculator
         public static double CalculateWeight(double diameter, double length, double density)
         {
             var roundBarArgument = new RoundBarArgument(diameter, 0, length, density);
-            var results = validator.Validate(roundBarArgument, ruleSet: "Common,Length");
+            var results = Validator.Validate(roundBarArgument, ruleSet: "Common,Length");
 
             if (!results.IsValid)
             {
@@ -69,7 +69,7 @@ namespace MetalWeightCalculator
         public static double CalculateLength(double diameter, double weight, double density)
         {
             var roundBarArgument = new RoundBarArgument(diameter, weight, 0, density);
-            var results = validator.Validate(roundBarArgument, ruleSet: "Common,Weight");
+            var results = Validator.Validate(roundBarArgument, ruleSet: "Common,Weight");
 
             if (!results.IsValid)
             {

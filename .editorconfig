@@ -15,3 +15,4 @@ dotnet_diagnostic.SA1201.severity = none
 
 # xUnit1025: InlineData should be unique within the Theory it belongs to
 dotnet_diagnostic.xUnit1025.severity = warning
+

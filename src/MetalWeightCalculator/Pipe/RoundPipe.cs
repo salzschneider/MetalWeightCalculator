@@ -31,7 +31,7 @@ namespace MetalWeightCalculator
     /// </summary>
     public class RoundPipe : Shape
     {
-        private static RoundPipeValidator validator = new RoundPipeValidator();
+        private static readonly RoundPipeValidator Validator = new RoundPipeValidator();
 
         private RoundPipe()
         {
@@ -49,7 +49,7 @@ namespace MetalWeightCalculator
         public static double CalculateWeight(double diameter, double thickness, double length, double density)
         {
             var roundPipeArgument = new RoundPipeArgument(diameter, thickness, 0, length, density);
-            var results = validator.Validate(roundPipeArgument, ruleSet: "Common,Length");
+            var results = Validator.Validate(roundPipeArgument, ruleSet: "Common,Length");
 
             if (!results.IsValid)
             {
@@ -71,7 +71,7 @@ namespace MetalWeightCalculator
         public static double CalculateLength(double diameter, double thickness, double weight, double density)
         {
             var roundPipeArgument = new RoundPipeArgument(diameter, thickness, weight, 0, density);
-            var results = validator.Validate(roundPipeArgument, ruleSet: "Common,Weight");
+            var results = Validator.Validate(roundPipeArgument, ruleSet: "Common,Weight");
 
             if (!results.IsValid)
             {

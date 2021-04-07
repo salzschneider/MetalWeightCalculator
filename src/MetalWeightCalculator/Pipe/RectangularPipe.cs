@@ -30,7 +30,7 @@ namespace MetalWeightCalculator
     /// </summary>
     public class RectangularPipe : Shape
     {
-        private static RectangularPipeValidator validator = new RectangularPipeValidator();
+        private static readonly RectangularPipeValidator Validator = new RectangularPipeValidator();
 
         private RectangularPipe()
         {
@@ -49,7 +49,7 @@ namespace MetalWeightCalculator
         public static double CalculateWeight(double sideA, double sideB, double thickness, double length, double density)
         {
             var rectangularPipeArgument = new RectangularPipeArgument(sideA, sideB, thickness, 0, length, density);
-            var results = validator.Validate(rectangularPipeArgument, ruleSet: "Common,Length");
+            var results = Validator.Validate(rectangularPipeArgument, ruleSet: "Common,Length");
 
             if(!results.IsValid)
             {
@@ -72,7 +72,7 @@ namespace MetalWeightCalculator
         public static double CalculateLength(double sideA, double sideB, double thickness, double weight, double density)
         {
             var rectangularPipeArgument = new RectangularPipeArgument(sideA, sideB, thickness, weight, 0, density);
-            var results = validator.Validate(rectangularPipeArgument, ruleSet: "Common,Weight");
+            var results = Validator.Validate(rectangularPipeArgument, ruleSet: "Common,Weight");
 
             if (!results.IsValid)
             {

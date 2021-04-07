@@ -107,19 +107,19 @@ namespace MetalWeightCalculator.UnitTests
         [InlineData(100, 0, 1000, 1)]
         [InlineData(100, 2, -1, 1)]
         [InlineData(100, 2, 1000, 0)]
-        public void CalculateLength_InvalidArguments_ThrowException(double side, double thickness, double length, double density)
+        public void CalculateLength_InvalidArguments_ThrowException(double side, double thickness, double weight, double density)
         {
             // arrange, act, assert
-            Assert.Throws<System.ArgumentException>(() => SquarePipe.CalculateWeight(side, thickness, length, density));
+            Assert.Throws<System.ArgumentException>(() => SquarePipe.CalculateLength(side, thickness, weight, density));
         }
 
         [Theory]
         [InlineData(100, 100, 1000, 1)]
         [InlineData(100, 100.01, 1000, 0)]
-        public void CalculateLength_InvalidSideThicknessRatio_ThrowException(double side, double thickness, double length, double density)
+        public void CalculateLength_InvalidSideThicknessRatio_ThrowException(double side, double thickness, double weight, double density)
         {
             // arrange, act, assert
-            Assert.Throws<System.ArgumentException>(() => SquarePipe.CalculateWeight(side, thickness, length, density));
+            Assert.Throws<System.ArgumentException>(() => SquarePipe.CalculateLength(side, thickness, weight, density));
         }
     }
 }

@@ -31,7 +31,7 @@ namespace MetalWeightCalculator
     /// </summary>
     public class SquarePipe : Shape
     {
-        private static SquarePipeValidator validator = new SquarePipeValidator();
+        private static readonly SquarePipeValidator Validator = new SquarePipeValidator();
 
         private SquarePipe()
         {
@@ -49,7 +49,7 @@ namespace MetalWeightCalculator
         public static double CalculateWeight(double side, double thickness, double length, double density)
         {
             var squarePipeArgument = new SquarePipeArgument(side, thickness, 0, length, density);
-            var results = validator.Validate(squarePipeArgument, ruleSet: "Common,Length");
+            var results = Validator.Validate(squarePipeArgument, ruleSet: "Common,Length");
 
             if (!results.IsValid)
             {
@@ -70,6 +70,14 @@ namespace MetalWeightCalculator
         /// <exception cref="System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateLength(double side, double thickness, double weight, double density)
         {
+            var squarePipeArgument = new SquarePipeArgument(side, thickness, weight, 0, density);
+            var results = Validator.Validate(squarePipeArgument, ruleSet: "Common,Weight");
+
+            if (!results.IsValid)
+            {
+                InvalidArgumentsHandler(results);
+            }
+
             return weight / ((density / Density.Steel) * 0.0157 * thickness * ((side * 2) - (2.86 * thickness))) * 1000;
         }
     }
