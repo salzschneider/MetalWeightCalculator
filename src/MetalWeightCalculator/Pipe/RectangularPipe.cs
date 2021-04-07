@@ -56,7 +56,7 @@ namespace MetalWeightCalculator
                 InvalidArgumentsHandler(results);
             }
 
-            return (density / 7.850) * 0.0157 * thickness * ((sideA + sideB) - (2.86 * thickness)) * (length / 1000);
+            return (density / Density.Steel) * 0.0157 * thickness * ((sideA + sideB) - (2.86 * thickness)) * (length / 1000);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace MetalWeightCalculator
                 InvalidArgumentsHandler(results);
             }
 
-            return weight / ((density / 7.850) * 0.0157 * thickness * ((sideA + sideB) - (2.86 * thickness))) * 1000;
+            return weight / ((density / Density.Steel) * 0.0157 * thickness * ((sideA + sideB) - (2.86 * thickness))) * 1000;
         }
     }
 }

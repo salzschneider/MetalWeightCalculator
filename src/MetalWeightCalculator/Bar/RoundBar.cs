@@ -23,54 +23,60 @@ namespace MetalWeightCalculator
 {
     using System;
     using FluentValidation;
-    using MetalWeightCalculator.Pipe.Arguments;
-    using MetalWeightCalculator.Pipe.Validators;
+    using MetalWeightCalculator.Bar.Arguments;
+    using MetalWeightCalculator.Bar.Validators;
 
     /// <summary>
-    /// Calculating the weight or length of a square pipe made of different metals (steel pipes, stainless steel, copper, etc.).
+    /// Calculating the weight or length of a round bar made of different metals (steel pipes, stainless steel, copper, etc.).
     /// </summary>
-    public class SquarePipe : Shape
+    public class RoundBar : Shape
     {
-        private static SquarePipeValidator validator = new SquarePipeValidator();
+        private static RoundBarValidator validator = new RoundBarValidator();
 
-        private SquarePipe()
+        private RoundBar()
         {
         }
 
         /// <summary>
-        /// Calculating the weight of a square pipe.
+        /// Calculating the weight of a round bar.
         /// </summary>
-        /// <param name="side">Profile dimension or side size in millimetres.</param>
-        /// <param name="thickness">Thickness in millimetres.</param>
+        /// <param name="diameter">Diameter in millimetres.</param>
         /// <param name="length">Length in millimetres.</param>
-        /// <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
-        /// <returns>Weight of a square pipe in kilograms.</returns>
+        /// <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
+        /// <returns>Weight of a round bar in kilograms.</returns>
         /// <exception cref="System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
-        public static double CalculateWeight(double side, double thickness, double length, double density)
+        public static double CalculateWeight(double diameter, double length, double density)
         {
-            var squarePipeArgument = new SquarePipeArgument(side, thickness, 0, length, density);
-            var results = validator.Validate(squarePipeArgument, ruleSet: "Common,Length");
+            var roundBarArgument = new RoundBarArgument(diameter, 0, length, density);
+            var results = validator.Validate(roundBarArgument, ruleSet: "Common,Length");
 
             if (!results.IsValid)
             {
                 InvalidArgumentsHandler(results);
             }
 
-            return (density / Density.Steel) * 0.0157 * thickness * ((side * 2) - (2.86 * thickness)) * (length / 1000);
+            return Math.Pow(diameter / 2, 2) * Math.PI * density * (length / 1000) / 1000;
         }
 
         /// <summary>
-        /// Calculating the length of a square pipe.
+        /// Calculating the lenght of a round bar.
         /// </summary>
-        /// <param name="side">Profile dimension or side size in millimetres.</param>
-        /// <param name="thickness">Thickness in millimetres.</param>
+        /// <param name="diameter">Diameter in millimetres.</param>
         /// <param name="weight">Weight in kilograms.</param>
-        /// <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
-        /// <returns>Lenght of a square pipe in millimetres.</returns>
+        /// <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
+        /// <returns>Lenght of a round bar in millimetres.</returns>
         /// <exception cref="System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
-        public static double CalculateLength(double side, double thickness, double weight, double density)
+        public static double CalculateLength(double diameter, double weight, double density)
         {
-            return weight / ((density / Density.Steel) * 0.0157 * thickness * ((side * 2) - (2.86 * thickness))) * 1000;
+            var roundBarArgument = new RoundBarArgument(diameter, weight, 0, density);
+            var results = validator.Validate(roundBarArgument, ruleSet: "Common,Weight");
+
+            if (!results.IsValid)
+            {
+                InvalidArgumentsHandler(results);
+            }
+
+            return (1000000 * weight) / (Math.Pow(diameter / 2, 2) * Math.PI * density);
         }
     }
 }

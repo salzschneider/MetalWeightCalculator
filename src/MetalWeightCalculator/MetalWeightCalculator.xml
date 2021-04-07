@@ -4,6 +4,31 @@
         <name>MetalWeightCalculator</name>
     </assembly>
     <members>
+        <member name="T:MetalWeightCalculator.RoundBar">
+            <summary>
+            Calculating the weight or length of a round bar made of different metals (steel pipes, stainless steel, copper, etc.).
+            </summary>
+        </member>
+        <member name="M:MetalWeightCalculator.RoundBar.CalculateWeight(System.Double,System.Double,System.Double)">
+            <summary>
+            Calculating the weight of a round bar.
+            </summary>
+            <param name="diameter">Diameter in millimetres.</param>
+            <param name="length">Length in millimetres.</param>
+            <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
+            <returns>Weight of a round bar in kilograms.</returns>
+            <exception cref="T:System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+        </member>
+        <member name="M:MetalWeightCalculator.RoundBar.CalculateLength(System.Double,System.Double,System.Double)">
+            <summary>
+            Calculating the lenght of a round bar.
+            </summary>
+            <param name="diameter">Diameter in millimetres.</param>
+            <param name="weight">Weight in kilograms.</param>
+            <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
+            <returns>Lenght of a round bar in millimetres.</returns>
+            <exception cref="T:System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+        </member>
         <member name="T:MetalWeightCalculator.Density">
             <summary>
             Metal density table.
