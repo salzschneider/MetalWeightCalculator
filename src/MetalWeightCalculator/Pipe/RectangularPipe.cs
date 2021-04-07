@@ -21,13 +21,18 @@
 
 namespace MetalWeightCalculator
 {
+    using FluentValidation;
     using System;
+    using MetalWeightCalculator.Pipe.Arguments;
+    using MetalWeightCalculator.Pipe.Validators;
 
     /// <summary>
     /// Calculating the weight or length of a rectangular pipe made of different metals (steel pipes, stainless steel, copper, etc.).
     /// </summary>
     public static class RectangularPipe
     {
+        private static RectangularPipeValidator rectangularPipeValidator = new RectangularPipeValidator();
+
         /// <summary>
         /// Calculating the weight of a rectangular pipe.
         /// </summary>
@@ -39,7 +44,23 @@ namespace MetalWeightCalculator
         /// <returns>Weight of a rectangular pipe in kg.</returns>
         public static double CalculateWeight(double sideA, double sideB, double thickness, double length, double density)
         {
-            return (density / 7.850) * 0.0157 * thickness * ((sideA + sideB) - (2.86 * thickness)) * (length / 1000);
+            var rectangularPipeArgument = new RectangularPipeArgument(sideA, sideB, thickness, 0, length, density);
+            var results = rectangularPipeValidator.Validate(rectangularPipeArgument, ruleSet: "Common");
+
+            if(results.IsValid)
+            {
+                return (density / 7.850) * 0.0157 * thickness * ((sideA + sideB) - (2.86 * thickness)) * (length / 1000);
+            }
+            else
+            {
+                var errorMessage = string.Empty;
+                foreach (var failure in results.Errors)
+                {
+                    errorMessage += "Property " + failure.PropertyName + " failed validation. Error was: " + failure.ErrorMessage + System.Environment.NewLine;
+                }
+
+                throw new ArgumentException(errorMessage);
+            }
         }
 
         /// <summary>

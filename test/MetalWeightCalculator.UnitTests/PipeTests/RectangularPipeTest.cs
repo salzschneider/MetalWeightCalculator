@@ -40,6 +40,30 @@ namespace MetalWeightCalculator.UnitTests
             Assert.Equal(expected, actual);
         }
 
+
+
+        [Theory]
+        [InlineData(100, 90, 2, 1000, 1)]
+        public void CalculateWeight_ZeroParameters_ThrowException(double sideA, double sideB, double thickness, double length, double density)
+        {
+            RectangularPipe.CalculateWeight(sideA, sideB, thickness, length, density);
+
+            // arrange, act, assert
+            Assert.Throws<System.ArgumentException>(() => RectangularPipe.CalculateWeight(sideA, sideB, thickness, length, density));
+        }
+
+        [Theory]
+        [InlineData(0, 0, 0, 0, 0)]
+        public void CalculateWeight_ZeroParameters_ThrowException2(double sideA, double sideB, double thickness, double length, double density)
+        {
+            RectangularPipe.CalculateWeight(sideA, sideB, thickness, length, density);
+
+            // arrange, act, assert
+            Assert.Throws<System.ArgumentException>(() => RectangularPipe.CalculateWeight(sideA, sideB, thickness, length, density));
+        }
+
+
+
         [Theory]
         [InlineData(100, 30, 2, 6000, Density.Steel, 23.414352)]
         [InlineData(100, 30, 2, 6000, Density.Aluminium, 8.112998400000002)]
