@@ -4,6 +4,11 @@
         <name>MetalWeightCalculator</name>
     </assembly>
     <members>
+        <member name="T:MetalWeightCalculator.Density">
+            <summary>
+            Metal density table.
+            </summary>
+        </member>
         <member name="T:MetalWeightCalculator.RectangularPipe">
             <summary>
             Calculating the weight or length of a rectangular pipe made of different metals (steel pipes, stainless steel, copper, etc.).
@@ -80,6 +85,17 @@
             <param name="weight">Weight in kilogram.</param>
             <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
             <returns>Lenght of a square pipe in millimetre.</returns>
+        </member>
+        <member name="T:MetalWeightCalculator.Shape">
+            <summary>
+            Base class of all products.
+            </summary>
+        </member>
+        <member name="M:MetalWeightCalculator.Shape.InvalidArgumentsHandler(FluentValidation.Results.ValidationResult)">
+            <summary>
+            Responding to the occurrence of invalid arguments.
+            </summary>
+            <param name="results">Argument validation result.</param>
         </member>
     </members>
 </doc>

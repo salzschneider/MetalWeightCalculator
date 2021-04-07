@@ -55,6 +55,26 @@ namespace MetalWeightCalculator.UnitTests
         }
 
         [Theory]
+        [InlineData(-1, 2, 1000, 1)]
+        [InlineData(100, 0, 1000, 1)]
+        [InlineData(100, 2, -1, 1)]
+        [InlineData(100, 2, 1000, 0)]
+        public void CalculateWeight_InvalidArguments_ThrowException(double diameter, double thickness, double length, double density)
+        {
+            // arrange, act, assert
+            Assert.Throws<System.ArgumentException>(() => RoundPipe.CalculateWeight(diameter, thickness, length, density));
+        }
+
+        [Theory]
+        [InlineData(100, 100, 1000, 1)]
+        [InlineData(100, 100.01, 1000, 0)]
+        public void CalculateWeight_InvalidDiameterThicknessRatio_ThrowException(double diameter, double thickness, double length, double density)
+        {
+            // arrange, act, assert
+            Assert.Throws<System.ArgumentException>(() => RoundPipe.CalculateWeight(diameter, thickness, length, density));
+        }
+
+        [Theory]
         [InlineData(100, 10, 22.195352097611888, 7.85, 1000)]
         [InlineData(222, 8, 211.10245995061973, 7.85, 5000)]
         [InlineData(100, 10, 7.690618815987815, 2.72, 1000)]
@@ -80,6 +100,26 @@ namespace MetalWeightCalculator.UnitTests
 
             // assert
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(-1, 2, 1000, 1)]
+        [InlineData(100, 0, 1000, 1)]
+        [InlineData(100, 2, -1, 1)]
+        [InlineData(100, 2, 1000, 0)]
+        public void CalculateLength_InvalidArguments_ThrowException(double diameter, double thickness, double length, double density)
+        {
+            // arrange, act, assert
+            Assert.Throws<System.ArgumentException>(() => RoundPipe.CalculateLength(diameter, thickness, length, density));
+        }
+
+        [Theory]
+        [InlineData(100, 100, 1000, 1)]
+        [InlineData(100, 100.01, 1000, 0)]
+        public void CalculateLength_InvalidDiameterThicknessRatio_ThrowException(double diameter, double thickness, double length, double density)
+        {
+            // arrange, act, assert
+            Assert.Throws<System.ArgumentException>(() => RoundPipe.CalculateLength(diameter, thickness, length, density));
         }
     }
 }

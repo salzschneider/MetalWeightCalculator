@@ -22,12 +22,21 @@
 namespace MetalWeightCalculator
 {
     using System;
+    using FluentValidation;
+    using MetalWeightCalculator.Pipe.Arguments;
+    using MetalWeightCalculator.Pipe.Validators;
 
     /// <summary>
     /// Calculating the weight or length of a round pipe made of different metals (steel pipes, stainless steel, copper, etc.).
     /// </summary>
-    public static class RoundPipe
+    public class RoundPipe : Shape
     {
+        private static RoundPipeValidator validator = new RoundPipeValidator();
+
+        private RoundPipe()
+        {
+        }
+
         /// <summary>
         /// Calculating the weight of a round pipe.
         /// </summary>
@@ -38,6 +47,14 @@ namespace MetalWeightCalculator
         /// <returns>Weight of a round pipe in kg.</returns>
         public static double CalculateWeight(double diameter, double thickness, double length, double density)
         {
+            var roundPipeArgument = new RoundPipeArgument(diameter, thickness, 0, length, density);
+            var results = validator.Validate(roundPipeArgument, ruleSet: "Common,Length");
+
+            if (!results.IsValid)
+            {
+                InvalidArgumentsHandler(results);
+            }
+
             return Math.PI * (density / 1000) * thickness * (diameter - thickness) * (length / 1000);
         }
 
@@ -51,7 +68,15 @@ namespace MetalWeightCalculator
         /// <returns>Lenght of a round pipe in millimetre.</returns>
         public static double CalculateLength(double diameter, double thickness, double weight, double density)
         {
-           return (weight / (Math.PI * (density / 1000) * thickness * (diameter - thickness))) * 1000;
+            var roundPipeArgument = new RoundPipeArgument(diameter, thickness, weight, 0, density);
+            var results = validator.Validate(roundPipeArgument, ruleSet: "Common,Weight");
+
+            if (!results.IsValid)
+            {
+                InvalidArgumentsHandler(results);
+            }
+
+            return (weight / (Math.PI * (density / 1000) * thickness * (diameter - thickness))) * 1000;
         }
     }
 }

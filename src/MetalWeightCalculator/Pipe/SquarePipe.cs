@@ -22,12 +22,21 @@
 namespace MetalWeightCalculator
 {
     using System;
+    using FluentValidation;
+    using MetalWeightCalculator.Pipe.Arguments;
+    using MetalWeightCalculator.Pipe.Validators;
 
     /// <summary>
     /// Calculating the weight or length of a square pipe made of different metals (steel pipes, stainless steel, copper, etc.).
     /// </summary>
-    public static class SquarePipe
+    public class SquarePipe : Shape
     {
+        private static SquarePipeValidator validator = new SquarePipeValidator();
+
+        private SquarePipe()
+        {
+        }
+
         /// <summary>
         /// Calculating the weight of a square pipe.
         /// </summary>
@@ -38,6 +47,14 @@ namespace MetalWeightCalculator
         /// <returns>Weight of a square pipe in kg.</returns>
         public static double CalculateWeight(double side, double thickness, double length, double density)
         {
+            var squarePipeArgument = new SquarePipeArgument(side, thickness, 0, length, density);
+            var results = validator.Validate(squarePipeArgument, ruleSet: "Common,Length");
+
+            if (!results.IsValid)
+            {
+                InvalidArgumentsHandler(results);
+            }
+
             return (density / 7.850) * 0.0157 * thickness * ((side * 2) - (2.86 * thickness)) * (length / 1000);
         }
 

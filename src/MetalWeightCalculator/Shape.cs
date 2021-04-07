@@ -19,33 +19,31 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace MetalWeightCalculator.Pipe.Validators
+namespace MetalWeightCalculator
 {
-    using FluentValidation;
-    using MetalWeightCalculator.Pipe.Arguments;
+    using System;
+    using FluentValidation.Results;
 
-    internal class RectangularPipeValidator : AbstractValidator<RectangularPipeArgument>
+    /// <summary>
+    /// Base class of all products.
+    /// </summary>
+    public abstract class Shape
     {
-        public RectangularPipeValidator()
+        /// <summary>
+        /// Responding to the occurrence of invalid arguments.
+        /// </summary>
+        /// <param name="results">Argument validation result.</param>
+        protected static void InvalidArgumentsHandler(ValidationResult results)
         {
-            RuleSet("Common", () =>
-            {
-                RuleFor(x => x.SideA).GreaterThan(0).WithName("sideA");
-                RuleFor(x => x.SideB).GreaterThan(0).WithName("sideB");
-                RuleFor(x => x.Thickness).GreaterThan(0).WithName("thickness");
-                RuleFor(x => x.Density).GreaterThan(0).WithName("density");
-                RuleFor(x => ((x.SideA + x.SideB) - (2.86 * x.Thickness))).GreaterThan(0).WithMessage("Invalid side-thickness ratio.");
-            });
+            var errorMessage = string.Empty;
 
-            RuleSet("Weight", () =>
+            foreach (var failure in results.Errors)
             {
-                RuleFor(x => x.Weight).GreaterThan(0).WithName("weight");
-            });
+                // errorMessage += "Property " + failure.PropertyName + " failed validation. Error was: " + failure.ErrorMessage + " ";
+                errorMessage += "Error was: " + failure.ErrorMessage + " ";
+            }
 
-            RuleSet("Length", () =>
-            {
-                RuleFor(x => x.Length).GreaterThan(0).WithName("length");
-            });
+            throw new ArgumentException(errorMessage);
         }
     }
 }

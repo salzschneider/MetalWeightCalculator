@@ -21,6 +21,9 @@
 
 namespace MetalWeightCalculator
 {
+    /// <summary>
+    /// Metal density table.
+    /// </summary>
     public struct Density
     {
         public const double Steel = 7.85;

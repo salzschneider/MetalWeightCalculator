@@ -55,6 +55,26 @@ namespace MetalWeightCalculator.UnitTests
         }
 
         [Theory]
+        [InlineData(-1, 2, 1000, 1)]
+        [InlineData(100, 0, 1000, 1)]
+        [InlineData(100, 2, -1, 1)]
+        [InlineData(100, 2, 1000, 0)]
+        public void CalculateWeight_InvalidArguments_ThrowException(double side, double thickness, double length, double density)
+        {
+            // arrange, act, assert
+            Assert.Throws<System.ArgumentException>(() => SquarePipe.CalculateWeight(side, thickness, length, density));
+        }
+
+        [Theory]
+        [InlineData(100, 100, 1000, 1)]
+        [InlineData(100, 100.01, 1000, 0)]
+        public void CalculateWeight_InvalidSideThicknessRatio_ThrowException(double side, double thickness, double length, double density)
+        {
+            // arrange, act, assert
+            Assert.Throws<System.ArgumentException>(() => SquarePipe.CalculateWeight(side, thickness, length, density));
+        }
+
+        [Theory]
         [InlineData(100, 2, 36.602351999999996, 7.85, 6000)]
         [InlineData(100, 2, 12.682598400000002, 2.72, 6000)]
         [InlineData(250, 10, 777.10289999999986, 7.85, 10500)]
@@ -80,6 +100,26 @@ namespace MetalWeightCalculator.UnitTests
 
             // assert
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(-1, 2, 1000, 1)]
+        [InlineData(100, 0, 1000, 1)]
+        [InlineData(100, 2, -1, 1)]
+        [InlineData(100, 2, 1000, 0)]
+        public void CalculateLength_InvalidArguments_ThrowException(double side, double thickness, double length, double density)
+        {
+            // arrange, act, assert
+            Assert.Throws<System.ArgumentException>(() => SquarePipe.CalculateWeight(side, thickness, length, density));
+        }
+
+        [Theory]
+        [InlineData(100, 100, 1000, 1)]
+        [InlineData(100, 100.01, 1000, 0)]
+        public void CalculateLength_InvalidSideThicknessRatio_ThrowException(double side, double thickness, double length, double density)
+        {
+            // arrange, act, assert
+            Assert.Throws<System.ArgumentException>(() => SquarePipe.CalculateWeight(side, thickness, length, density));
         }
     }
 }

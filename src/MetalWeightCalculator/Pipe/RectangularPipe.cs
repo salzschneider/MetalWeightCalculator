@@ -22,16 +22,19 @@
 namespace MetalWeightCalculator
 {
     using FluentValidation;
-    using System;
     using MetalWeightCalculator.Pipe.Arguments;
     using MetalWeightCalculator.Pipe.Validators;
 
     /// <summary>
     /// Calculating the weight or length of a rectangular pipe made of different metals (steel pipes, stainless steel, copper, etc.).
     /// </summary>
-    public static class RectangularPipe
+    public class RectangularPipe : Shape
     {
-        private static RectangularPipeValidator rectangularPipeValidator = new RectangularPipeValidator();
+        private static RectangularPipeValidator validator = new RectangularPipeValidator();
+
+        private RectangularPipe()
+        {
+        }
 
         /// <summary>
         /// Calculating the weight of a rectangular pipe.
@@ -45,22 +48,14 @@ namespace MetalWeightCalculator
         public static double CalculateWeight(double sideA, double sideB, double thickness, double length, double density)
         {
             var rectangularPipeArgument = new RectangularPipeArgument(sideA, sideB, thickness, 0, length, density);
-            var results = rectangularPipeValidator.Validate(rectangularPipeArgument, ruleSet: "Common");
+            var results = validator.Validate(rectangularPipeArgument, ruleSet: "Common,Length");
 
-            if(results.IsValid)
+            if(!results.IsValid)
             {
-                return (density / 7.850) * 0.0157 * thickness * ((sideA + sideB) - (2.86 * thickness)) * (length / 1000);
+                InvalidArgumentsHandler(results);
             }
-            else
-            {
-                var errorMessage = string.Empty;
-                foreach (var failure in results.Errors)
-                {
-                    errorMessage += "Property " + failure.PropertyName + " failed validation. Error was: " + failure.ErrorMessage + System.Environment.NewLine;
-                }
 
-                throw new ArgumentException(errorMessage);
-            }
+            return (density / 7.850) * 0.0157 * thickness * ((sideA + sideB) - (2.86 * thickness)) * (length / 1000);
         }
 
         /// <summary>
@@ -74,6 +69,14 @@ namespace MetalWeightCalculator
         /// <returns>Lenght of a rectangular pipe in millimetre.</returns>
         public static double CalculateLength(double sideA, double sideB, double thickness, double weight, double density)
         {
+            var rectangularPipeArgument = new RectangularPipeArgument(sideA, sideB, thickness, weight, 0, density);
+            var results = validator.Validate(rectangularPipeArgument, ruleSet: "Common,Weight");
+
+            if (!results.IsValid)
+            {
+                InvalidArgumentsHandler(results);
+            }
+
             return weight / ((density / 7.850) * 0.0157 * thickness * ((sideA + sideB) - (2.86 * thickness))) * 1000;
         }
     }

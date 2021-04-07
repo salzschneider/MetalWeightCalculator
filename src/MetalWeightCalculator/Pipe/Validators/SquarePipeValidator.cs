@@ -24,17 +24,16 @@ namespace MetalWeightCalculator.Pipe.Validators
     using FluentValidation;
     using MetalWeightCalculator.Pipe.Arguments;
 
-    internal class RectangularPipeValidator : AbstractValidator<RectangularPipeArgument>
+    internal class SquarePipeValidator : AbstractValidator<SquarePipeArgument>
     {
-        public RectangularPipeValidator()
+        public SquarePipeValidator()
         {
             RuleSet("Common", () =>
             {
-                RuleFor(x => x.SideA).GreaterThan(0).WithName("sideA");
-                RuleFor(x => x.SideB).GreaterThan(0).WithName("sideB");
+                RuleFor(x => x.Side).GreaterThan(0).WithName("side");
                 RuleFor(x => x.Thickness).GreaterThan(0).WithName("thickness");
                 RuleFor(x => x.Density).GreaterThan(0).WithName("density");
-                RuleFor(x => ((x.SideA + x.SideB) - (2.86 * x.Thickness))).GreaterThan(0).WithMessage("Invalid side-thickness ratio.");
+                RuleFor(x => (2 * x.Side) - (2.86 * x.Thickness)).GreaterThan(0).WithMessage("Invalid side-thickness ratio.");
             });
 
             RuleSet("Weight", () =>

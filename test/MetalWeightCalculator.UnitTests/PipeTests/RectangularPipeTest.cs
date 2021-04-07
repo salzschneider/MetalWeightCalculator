@@ -40,29 +40,26 @@ namespace MetalWeightCalculator.UnitTests
             Assert.Equal(expected, actual);
         }
 
-
-
         [Theory]
-        [InlineData(100, 90, 2, 1000, 1)]
-        public void CalculateWeight_ZeroParameters_ThrowException(double sideA, double sideB, double thickness, double length, double density)
+        [InlineData(-1, 90, 2, 1000, 1)]
+        [InlineData(100, 0, 2, 1000, 1)]
+        [InlineData(100, 90, -1, 1000, 1)]
+        [InlineData(100, 90, 2, 0, 1)]
+        [InlineData(100, 90, 2, 1000, -1)]
+        public void CalculateWeight_InvalidArguments_ThrowException(double sideA, double sideB, double thickness, double length, double density)
         {
-            RectangularPipe.CalculateWeight(sideA, sideB, thickness, length, density);
-
             // arrange, act, assert
             Assert.Throws<System.ArgumentException>(() => RectangularPipe.CalculateWeight(sideA, sideB, thickness, length, density));
         }
 
         [Theory]
-        [InlineData(0, 0, 0, 0, 0)]
-        public void CalculateWeight_ZeroParameters_ThrowException2(double sideA, double sideB, double thickness, double length, double density)
+        [InlineData(1, 1, 0.7, 1000, 1)]
+        [InlineData(100, 10, 39, 1000, 1)]
+        public void CalculateWeight_InvalidSideThicknessRatio_ThrowException(double sideA, double sideB, double thickness, double length, double density)
         {
-            RectangularPipe.CalculateWeight(sideA, sideB, thickness, length, density);
-
             // arrange, act, assert
             Assert.Throws<System.ArgumentException>(() => RectangularPipe.CalculateWeight(sideA, sideB, thickness, length, density));
         }
-
-
 
         [Theory]
         [InlineData(100, 30, 2, 6000, Density.Steel, 23.414352)]
@@ -104,6 +101,28 @@ namespace MetalWeightCalculator.UnitTests
 
             // assert
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(-1, 90, 2, 1000, 1)]
+        [InlineData(100, 0, 2, 1000, 1)]
+        [InlineData(100, 90, -1, 1000, 1)]
+        [InlineData(100, 90, 2, 0, 1)]
+        [InlineData(100, 90, 2, 1000, -1)]
+
+        public void CalculateLength_InvalidArguments_ThrowException(double sideA, double sideB, double thickness, double weight, double density)
+        {
+            // arrange, act, assert
+            Assert.Throws<System.ArgumentException>(() => RectangularPipe.CalculateLength(sideA, sideB, thickness, weight, density));
+        }
+
+        [Theory]
+        [InlineData(1, 1, 0.7, 1000, 1)]
+        [InlineData(100, 10, 39, 1000, 1)]
+        public void CalculateLength_InvalidSideThicknessRatio_ThrowException(double sideA, double sideB, double thickness, double length, double density)
+        {
+            // arrange, act, assert
+            Assert.Throws<System.ArgumentException>(() => RectangularPipe.CalculateLength(sideA, sideB, thickness, length, density));
         }
     }
 }
