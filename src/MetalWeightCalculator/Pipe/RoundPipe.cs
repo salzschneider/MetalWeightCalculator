@@ -40,11 +40,12 @@ namespace MetalWeightCalculator
         /// <summary>
         /// Calculating the weight of a round pipe.
         /// </summary>
-        /// <param name="diameter">Diameter in millimetre.</param>
-        /// <param name="thickness">Thickness in millimetre.</param>
-        /// <param name="length">Length in millimetre.</param>
+        /// <param name="diameter">Diameter in millimetres.</param>
+        /// <param name="thickness">Thickness in millimetres.</param>
+        /// <param name="length">Length in millimetres.</param>
         /// <param name="density">Density of the metal from which the round pipe is made in g/cm³.</param>
-        /// <returns>Weight of a round pipe in kg.</returns>
+        /// <returns>Weight of a round pipe in kilograms.</returns>
+        /// <exception cref="System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateWeight(double diameter, double thickness, double length, double density)
         {
             var roundPipeArgument = new RoundPipeArgument(diameter, thickness, 0, length, density);
@@ -61,11 +62,12 @@ namespace MetalWeightCalculator
         /// <summary>
         /// Calculating the length of a round pipe.
         /// </summary>
-        /// <param name="diameter">Diameter in millimetre.</param>
-        /// <param name="thickness">Thickness in millimetre.</param>
-        /// <param name="weight">Weight in kilogram.</param>
+        /// <param name="diameter">Diameter in millimetres.</param>
+        /// <param name="thickness">Thickness in millimetres.</param>
+        /// <param name="weight">Weight in kilograms.</param>
         /// <param name="density">Density of the metal from which the round pipe is made in g/cm³.</param>
-        /// <returns>Lenght of a round pipe in millimetre.</returns>
+        /// <returns>Lenght of a round pipe in millimetres.</returns>
+        /// <exception cref="System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateLength(double diameter, double thickness, double weight, double density)
         {
             var roundPipeArgument = new RoundPipeArgument(diameter, thickness, weight, 0, density);

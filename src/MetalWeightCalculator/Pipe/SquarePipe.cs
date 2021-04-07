@@ -40,11 +40,12 @@ namespace MetalWeightCalculator
         /// <summary>
         /// Calculating the weight of a square pipe.
         /// </summary>
-        /// <param name="side">Profile dimension or side size in millimetre.</param>
-        /// <param name="thickness">Thickness in millimetre.</param>
-        /// <param name="length">Length in millimetre.</param>
+        /// <param name="side">Profile dimension or side size in millimetres.</param>
+        /// <param name="thickness">Thickness in millimetres.</param>
+        /// <param name="length">Length in millimetres.</param>
         /// <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
-        /// <returns>Weight of a square pipe in kg.</returns>
+        /// <returns>Weight of a square pipe in kilograms.</returns>
+        /// <exception cref="System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateWeight(double side, double thickness, double length, double density)
         {
             var squarePipeArgument = new SquarePipeArgument(side, thickness, 0, length, density);
@@ -61,11 +62,12 @@ namespace MetalWeightCalculator
         /// <summary>
         /// Calculating the length of a square pipe.
         /// </summary>
-        /// <param name="side">Profile dimension or side size in millimetre.</param>
-        /// <param name="thickness">Thickness in millimetre.</param>
-        /// <param name="weight">Weight in kilogram.</param>
+        /// <param name="side">Profile dimension or side size in millimetres.</param>
+        /// <param name="thickness">Thickness in millimetres.</param>
+        /// <param name="weight">Weight in kilograms.</param>
         /// <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
-        /// <returns>Lenght of a square pipe in millimetre.</returns>
+        /// <returns>Lenght of a square pipe in millimetres.</returns>
+        /// <exception cref="System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateLength(double side, double thickness, double weight, double density)
         {
             return weight / ((density / 7.850) * 0.0157 * thickness * ((side * 2) - (2.86 * thickness))) * 1000;
