@@ -22,45 +22,35 @@
 namespace MetalWeightCalculator
 {
     using System;
-    using System.Collections.Generic;
-    using FluentValidation.Results;
 
     /// <summary>
-    /// Base class of all products.
+    /// Represents an error item during the argument validation.
     /// </summary>
-    public abstract class Shape
+    public class ValidationError
     {
         /// <summary>
-        /// Responding to the occurrence of invalid arguments.
+        /// Gets the name of the property.
         /// </summary>
-        /// <param name="results">Argument validation result.</param>
-        protected static void InvalidArgumentsHandler(ValidationResult results)
+        public string PropertyName { get; private set; }
+
+        /// <summary>
+        /// Gets the error message.
+        /// </summary>
+        public string ErrorMessage { get; private set; }
+
+        internal ValidationError(string propertyName, string errorMessage)
         {
-            var errorMessage = string.Empty;
-            var validationErrors = new List<ValidationError>();
-
-            foreach (var failure in results.Errors)
+            if(propertyName is null)
             {
-                errorMessage += "Error was: " + failure.ErrorMessage + " ";
-
-                var validationError = new ValidationError(ToLowerFirstChar(failure.PropertyName), failure.ErrorMessage);
-                validationErrors.Add(validationError);
+                throw new ArgumentException("Property name can't be null.");
             }
 
-            var invalidArgumentsException = new InvalidArgumentsException(errorMessage);
-            invalidArgumentsException.ValidationErrors = validationErrors;
-
-            throw invalidArgumentsException;
+            PropertyName = propertyName;
+            ErrorMessage = errorMessage ?? string.Empty;
         }
 
-        private static string ToLowerFirstChar(string text)
+        private ValidationError()
         {
-            if (string.IsNullOrEmpty(text))
-            {
-                return text;
-            }
-
-            return char.ToLower(text[0]) + text.Substring(1);
         }
     }
 }

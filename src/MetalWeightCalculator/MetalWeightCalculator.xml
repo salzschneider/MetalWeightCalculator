@@ -17,7 +17,7 @@
             <param name="length">Length in millimetres.</param>
             <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
             <returns>Weight of a round bar in kilograms.</returns>
-            <exception cref="T:System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+            <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="M:MetalWeightCalculator.RoundBar.CalculateLength(System.Double,System.Double,System.Double)">
             <summary>
@@ -27,7 +27,17 @@
             <param name="weight">Weight in kilograms.</param>
             <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
             <returns>Lenght of a round bar in millimetres.</returns>
-            <exception cref="T:System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+            <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+        </member>
+        <member name="T:MetalWeightCalculator.InvalidArgumentsException">
+            <summary>
+            Represents an error set during the argument validation.
+            </summary>
+        </member>
+        <member name="P:MetalWeightCalculator.InvalidArgumentsException.ValidationErrors">
+            <summary>
+            Gets all error item found during the argument validation.
+            </summary>
         </member>
         <member name="T:MetalWeightCalculator.Density">
             <summary>
@@ -49,7 +59,7 @@
             <param name="length">Length in millimetres.</param>
             <param name="density">Density of the metal from which the rectangular pipe is made in g/cm³.</param>
             <returns>Weight of a rectangular pipe in kilograms.</returns>
-            <exception cref="T:System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+            <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="M:MetalWeightCalculator.RectangularPipe.CalculateLength(System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
@@ -61,7 +71,7 @@
             <param name="weight">Weight in kilograms.</param>
             <param name="density">Density of the metal from which the rectangular pipe is made in g/cm³.</param>
             <returns>Lenght of a rectangular pipe in millimetres.</returns>
-            <exception cref="T:System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+            <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="T:MetalWeightCalculator.RoundPipe">
             <summary>
@@ -77,7 +87,7 @@
             <param name="length">Length in millimetres.</param>
             <param name="density">Density of the metal from which the round pipe is made in g/cm³.</param>
             <returns>Weight of a round pipe in kilograms.</returns>
-            <exception cref="T:System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+            <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="M:MetalWeightCalculator.RoundPipe.CalculateLength(System.Double,System.Double,System.Double,System.Double)">
             <summary>
@@ -88,7 +98,7 @@
             <param name="weight">Weight in kilograms.</param>
             <param name="density">Density of the metal from which the round pipe is made in g/cm³.</param>
             <returns>Lenght of a round pipe in millimetres.</returns>
-            <exception cref="T:System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+            <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="T:MetalWeightCalculator.SquarePipe">
             <summary>
@@ -104,7 +114,7 @@
             <param name="length">Length in millimetres.</param>
             <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
             <returns>Weight of a square pipe in kilograms.</returns>
-            <exception cref="T:System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+            <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="M:MetalWeightCalculator.SquarePipe.CalculateLength(System.Double,System.Double,System.Double,System.Double)">
             <summary>
@@ -115,7 +125,7 @@
             <param name="weight">Weight in kilograms.</param>
             <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
             <returns>Lenght of a square pipe in millimetres.</returns>
-            <exception cref="T:System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+            <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="T:MetalWeightCalculator.Shape">
             <summary>
@@ -127,6 +137,21 @@
             Responding to the occurrence of invalid arguments.
             </summary>
             <param name="results">Argument validation result.</param>
+        </member>
+        <member name="T:MetalWeightCalculator.ValidationError">
+            <summary>
+            Represents an error item during the argument validation.
+            </summary>
+        </member>
+        <member name="P:MetalWeightCalculator.ValidationError.PropertyName">
+            <summary>
+            Gets the name of the property.
+            </summary>
+        </member>
+        <member name="P:MetalWeightCalculator.ValidationError.ErrorMessage">
+            <summary>
+            Gets the error message.
+            </summary>
         </member>
     </members>
 </doc>

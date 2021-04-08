@@ -44,7 +44,7 @@ namespace MetalWeightCalculator
         /// <param name="length">Length in millimetres.</param>
         /// <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
         /// <returns>Weight of a round bar in kilograms.</returns>
-        /// <exception cref="System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+        /// <exception cref="MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateWeight(double diameter, double length, double density)
         {
             var roundBarArgument = new RoundBarArgument(diameter, 0, length, density);
@@ -65,7 +65,7 @@ namespace MetalWeightCalculator
         /// <param name="weight">Weight in kilograms.</param>
         /// <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
         /// <returns>Lenght of a round bar in millimetres.</returns>
-        /// <exception cref="System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+        /// <exception cref="MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateLength(double diameter, double weight, double density)
         {
             var roundBarArgument = new RoundBarArgument(diameter, weight, 0, density);

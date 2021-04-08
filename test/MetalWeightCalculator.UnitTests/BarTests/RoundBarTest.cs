@@ -61,7 +61,7 @@ namespace MetalWeightCalculator.UnitTests
         public void CalculateWeight_InvalidArguments_ThrowException(double diameter, double length, double density)
         {
             // arrange, act, assert
-            Assert.Throws<System.ArgumentException>(() => RoundBar.CalculateWeight(diameter, length, density));
+            Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => RoundBar.CalculateWeight(diameter, length, density));
         }
 
         [Theory]
@@ -99,7 +99,7 @@ namespace MetalWeightCalculator.UnitTests
         public void CalculateLenght_InvalidArguments_ThrowException(double diameter, double weight, double density)
         {
             // arrange, act, assert
-            Assert.Throws<System.ArgumentException>(() => RoundBar.CalculateLength(diameter, weight, density));
+            Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => RoundBar.CalculateLength(diameter, weight, density));
         }
     }
 }

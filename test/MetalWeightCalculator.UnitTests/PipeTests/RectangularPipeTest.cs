@@ -49,7 +49,7 @@ namespace MetalWeightCalculator.UnitTests
         public void CalculateWeight_InvalidArguments_ThrowException(double sideA, double sideB, double thickness, double length, double density)
         {
             // arrange, act, assert
-            Assert.Throws<System.ArgumentException>(() => RectangularPipe.CalculateWeight(sideA, sideB, thickness, length, density));
+            Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => RectangularPipe.CalculateWeight(sideA, sideB, thickness, length, density));
         }
 
         [Theory]
@@ -58,7 +58,7 @@ namespace MetalWeightCalculator.UnitTests
         public void CalculateWeight_InvalidSideThicknessRatio_ThrowException(double sideA, double sideB, double thickness, double length, double density)
         {
             // arrange, act, assert
-            Assert.Throws<System.ArgumentException>(() => RectangularPipe.CalculateWeight(sideA, sideB, thickness, length, density));
+            Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => RectangularPipe.CalculateWeight(sideA, sideB, thickness, length, density));
         }
 
         [Theory]
@@ -113,7 +113,7 @@ namespace MetalWeightCalculator.UnitTests
         public void CalculateLength_InvalidArguments_ThrowException(double sideA, double sideB, double thickness, double weight, double density)
         {
             // arrange, act, assert
-            Assert.Throws<System.ArgumentException>(() => RectangularPipe.CalculateLength(sideA, sideB, thickness, weight, density));
+            Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => RectangularPipe.CalculateLength(sideA, sideB, thickness, weight, density));
         }
 
         [Theory]
@@ -122,7 +122,7 @@ namespace MetalWeightCalculator.UnitTests
         public void CalculateLength_InvalidSideThicknessRatio_ThrowException(double sideA, double sideB, double thickness, double length, double density)
         {
             // arrange, act, assert
-            Assert.Throws<System.ArgumentException>(() => RectangularPipe.CalculateLength(sideA, sideB, thickness, length, density));
+            Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => RectangularPipe.CalculateLength(sideA, sideB, thickness, length, density));
         }
     }
 }

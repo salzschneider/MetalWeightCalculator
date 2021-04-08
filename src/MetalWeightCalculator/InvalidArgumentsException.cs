@@ -23,44 +23,20 @@ namespace MetalWeightCalculator
 {
     using System;
     using System.Collections.Generic;
-    using FluentValidation.Results;
 
     /// <summary>
-    /// Base class of all products.
+    /// Represents an error set during the argument validation.
     /// </summary>
-    public abstract class Shape
+    public class InvalidArgumentsException : ArgumentException
     {
         /// <summary>
-        /// Responding to the occurrence of invalid arguments.
+        /// Gets all error item found during the argument validation.
         /// </summary>
-        /// <param name="results">Argument validation result.</param>
-        protected static void InvalidArgumentsHandler(ValidationResult results)
+        public List<ValidationError> ValidationErrors { get; internal set; }
+
+        public InvalidArgumentsException(string errorMessage)
+            : base(errorMessage)
         {
-            var errorMessage = string.Empty;
-            var validationErrors = new List<ValidationError>();
-
-            foreach (var failure in results.Errors)
-            {
-                errorMessage += "Error was: " + failure.ErrorMessage + " ";
-
-                var validationError = new ValidationError(ToLowerFirstChar(failure.PropertyName), failure.ErrorMessage);
-                validationErrors.Add(validationError);
-            }
-
-            var invalidArgumentsException = new InvalidArgumentsException(errorMessage);
-            invalidArgumentsException.ValidationErrors = validationErrors;
-
-            throw invalidArgumentsException;
-        }
-
-        private static string ToLowerFirstChar(string text)
-        {
-            if (string.IsNullOrEmpty(text))
-            {
-                return text;
-            }
-
-            return char.ToLower(text[0]) + text.Substring(1);
         }
     }
 }

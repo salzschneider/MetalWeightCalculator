@@ -45,7 +45,7 @@ namespace MetalWeightCalculator
         /// <param name="length">Length in millimetres.</param>
         /// <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
         /// <returns>Weight of a square pipe in kilograms.</returns>
-        /// <exception cref="System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+        /// <exception cref="MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateWeight(double side, double thickness, double length, double density)
         {
             var squarePipeArgument = new SquarePipeArgument(side, thickness, 0, length, density);
@@ -67,7 +67,7 @@ namespace MetalWeightCalculator
         /// <param name="weight">Weight in kilograms.</param>
         /// <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
         /// <returns>Lenght of a square pipe in millimetres.</returns>
-        /// <exception cref="System.ArgumentException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+        /// <exception cref="MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateLength(double side, double thickness, double weight, double density)
         {
             var squarePipeArgument = new SquarePipeArgument(side, thickness, weight, 0, density);
