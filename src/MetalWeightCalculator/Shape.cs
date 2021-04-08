@@ -43,7 +43,11 @@ namespace MetalWeightCalculator
             {
                 errorMessage += "Error was: " + failure.ErrorMessage + " ";
 
-                var validationError = new ValidationError(ToLowerFirstChar(failure.PropertyName), failure.ErrorMessage);
+                var validationError = new ValidationError(
+                    argumentName: ToLowerFirstChar(failure.PropertyName),
+                    errorMessage: failure.ErrorMessage,
+                    errorCode: (ErrorCodes)Enum.Parse(typeof(ErrorCodes), failure.ErrorCode));
+
                 validationErrors.Add(validationError);
             }
 

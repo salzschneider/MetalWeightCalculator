@@ -23,6 +23,8 @@ namespace MetalWeightCalculator.UnitTests
 {
     using MetalWeightCalculator;
     using System;
+    using System.Diagnostics;
+    using System.Linq;
     using Xunit;
 
     public class SquarePipeTest
@@ -56,22 +58,12 @@ namespace MetalWeightCalculator.UnitTests
         }
 
         [Theory]
-        [InlineData(-1, -1, 0, -1)]
         [InlineData(-1, 2, 1000, 1)]
         [InlineData(100, 0, 1000, 1)]
         [InlineData(100, 2, -1, 1)]
         [InlineData(100, 2, 1000, 0)]
         public void CalculateWeight_InvalidArguments_ThrowException(double side, double thickness, double length, double density)
         {
-            /*try
-            {
-                SquarePipe.CalculateWeight(side, thickness, length, density);
-            }
-            catch(Exception e)
-            {
-
-            }*/
-
             // arrange, act, assert
             Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => SquarePipe.CalculateWeight(side, thickness, length, density));
         }

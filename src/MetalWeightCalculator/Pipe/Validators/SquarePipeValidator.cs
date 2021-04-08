@@ -30,20 +30,39 @@ namespace MetalWeightCalculator.Pipe.Validators
         {
             RuleSet("Common", () =>
             {
-                RuleFor(x => x.Side).GreaterThan(0).WithName("side");
-                RuleFor(x => x.Thickness).GreaterThan(0).WithName("thickness");
-                RuleFor(x => x.Density).GreaterThan(0).WithName("density");
-                RuleFor(x => (2 * x.Side) - (2.86 * x.Thickness)).GreaterThan(0).WithMessage("Invalid side-thickness ratio.");
+                RuleFor(x => x.Side)
+                    .GreaterThan(0)
+                    .WithName("side")
+                    .WithErrorCode(ErrorCodes.GreaterThanZero.ToString());
+                RuleFor(x => x.Thickness)
+                    .GreaterThan(0)
+                    .WithName("thickness")
+                    .WithErrorCode(ErrorCodes.GreaterThanZero.ToString());
+                RuleFor(x => x.Density)
+                    .GreaterThan(0)
+                    .WithName("density")
+                    .WithErrorCode(ErrorCodes.GreaterThanZero.ToString());
+                RuleFor(x => (2 * x.Side) - (2.86 * x.Thickness))
+                    .GreaterThan(0)
+                    .WithMessage("Invalid side-thickness ratio.")
+                    .WithName("side")
+                    .WithErrorCode(ErrorCodes.InvalidRatio.ToString());
             });
 
             RuleSet("Weight", () =>
             {
-                RuleFor(x => x.Weight).GreaterThan(0).WithName("weight");
+                RuleFor(x => x.Weight)
+                    .GreaterThan(0)
+                    .WithName("weight")
+                    .WithErrorCode(ErrorCodes.GreaterThanZero.ToString());
             });
 
             RuleSet("Length", () =>
             {
-                RuleFor(x => x.Length).GreaterThan(0).WithName("length");
+                RuleFor(x => x.Length)
+                    .GreaterThan(0)
+                    .WithName("length")
+                    .WithErrorCode(ErrorCodes.GreaterThanZero.ToString());
             });
         }
     }

@@ -21,42 +21,16 @@
 
 namespace MetalWeightCalculator
 {
-    using System;
-
-    /// <summary>
-    /// Represents an error item during the argument validation.
-    /// </summary>
-    public class ValidationError
+    public enum ErrorCodes
     {
         /// <summary>
-        /// Gets the name of the argument.
+        /// Argument must be greater than zero.
         /// </summary>
-        public string ArgumentName { get; private set; }
+        GreaterThanZero,
 
         /// <summary>
-        /// Gets the error message.
+        /// Invalid argument ratio. For instance, in case of round pipe, thickness is greater than diameter.
         /// </summary>
-        public string ErrorMessage { get; private set; }
-
-        /// <summary>
-        /// Gets the error code.
-        /// </summary>
-        public ErrorCodes ErrorCode { get; private set; }
-
-        internal ValidationError(string argumentName, string errorMessage, ErrorCodes errorCode)
-        {
-            if(string.IsNullOrEmpty(argumentName))
-            {
-                throw new ArgumentException("Argument name can't be null.");
-            }
-
-            ArgumentName = argumentName;
-            ErrorMessage = errorMessage ?? string.Empty;
-            ErrorCode = errorCode;
-        }
-
-        private ValidationError()
-        {
-        }
+        InvalidRatio,
     }
 }
