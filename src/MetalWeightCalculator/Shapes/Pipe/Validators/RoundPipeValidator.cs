@@ -19,20 +19,20 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace MetalWeightCalculator.Pipe.Validators
+namespace MetalWeightCalculator.Shapes.Pipe.Validators
 {
     using FluentValidation;
-    using MetalWeightCalculator.Pipe.Arguments;
+    using MetalWeightCalculator.Shapes.Pipe.Arguments;
 
-    internal class SquarePipeValidator : AbstractValidator<SquarePipeArgument>
+    internal class RoundPipeValidator : AbstractValidator<RoundPipeArgument>
     {
-        public SquarePipeValidator()
+        public RoundPipeValidator()
         {
             RuleSet("Common", () =>
             {
-                RuleFor(x => x.Side)
+                RuleFor(x => x.Diameter)
                     .GreaterThan(0)
-                    .WithName("side")
+                    .WithName("diameter")
                     .WithErrorCode(ErrorCodes.GreaterThanZero.ToString());
                 RuleFor(x => x.Thickness)
                     .GreaterThan(0)
@@ -42,10 +42,10 @@ namespace MetalWeightCalculator.Pipe.Validators
                     .GreaterThan(0)
                     .WithName("density")
                     .WithErrorCode(ErrorCodes.GreaterThanZero.ToString());
-                RuleFor(x => (2 * x.Side) - (2.86 * x.Thickness))
+                RuleFor(x => x.Diameter - x.Thickness)
                     .GreaterThan(0)
-                    .WithMessage("Invalid side-thickness ratio.")
-                    .WithName("side")
+                    .WithMessage("Invalid diameter-thickness ratio.")
+                    .WithName("diameter")
                     .WithErrorCode(ErrorCodes.InvalidRatio.ToString());
             });
 

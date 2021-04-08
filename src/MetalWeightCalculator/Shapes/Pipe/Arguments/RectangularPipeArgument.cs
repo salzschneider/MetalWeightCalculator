@@ -19,32 +19,30 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace MetalWeightCalculator.Pipe.Validators
+namespace MetalWeightCalculator.Shapes.Pipe.Arguments
 {
-    using FluentValidation;
-    using MetalWeightCalculator.Pipe.Arguments;
-
-    internal class RoundPipeValidator : AbstractValidator<RoundPipeArgument>
+    internal class RectangularPipeArgument
     {
-        public RoundPipeValidator()
+        public double SideA { get; set; }
+
+        public double SideB { get; set; }
+
+        public double Thickness { get; set; }
+
+        public double Weight { get; set; }
+
+        public double Length { get; set; }
+
+        public double Density { get; set; }
+
+        public RectangularPipeArgument(double sideA, double sideB, double thickness, double weight, double length, double density)
         {
-            RuleSet("Common", () =>
-            {
-                RuleFor(x => x.Diameter).GreaterThan(0).WithName("diameter");
-                RuleFor(x => x.Thickness).GreaterThan(0).WithName("thickness");
-                RuleFor(x => x.Density).GreaterThan(0).WithName("density");
-                RuleFor(x => x.Diameter - x.Thickness).GreaterThan(0).WithMessage("Invalid diameter-thickness ratio.");
-            });
-
-            RuleSet("Weight", () =>
-            {
-                RuleFor(x => x.Weight).GreaterThan(0).WithName("weight");
-            });
-
-            RuleSet("Length", () =>
-            {
-                RuleFor(x => x.Length).GreaterThan(0).WithName("length");
-            });
+            SideA = sideA;
+            SideB = sideB;
+            Thickness = thickness;
+            Weight = weight;
+            Length = length;
+            Density = density;
         }
     }
 }

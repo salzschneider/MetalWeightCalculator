@@ -19,32 +19,41 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace MetalWeightCalculator.Pipe.Validators
+namespace MetalWeightCalculator.Shapes.Bar.Validators
 {
     using FluentValidation;
-    using MetalWeightCalculator.Pipe.Arguments;
+    using MetalWeightCalculator.Shapes.Bar.Arguments;
 
-    internal class RectangularPipeValidator : AbstractValidator<RectangularPipeArgument>
+    internal class RoundBarValidator : AbstractValidator<RoundBarArgument>
     {
-        public RectangularPipeValidator()
+        public RoundBarValidator()
         {
             RuleSet("Common", () =>
             {
-                RuleFor(x => x.SideA).GreaterThan(0).WithName("sideA");
-                RuleFor(x => x.SideB).GreaterThan(0).WithName("sideB");
-                RuleFor(x => x.Thickness).GreaterThan(0).WithName("thickness");
-                RuleFor(x => x.Density).GreaterThan(0).WithName("density");
-                RuleFor(x => ((x.SideA + x.SideB) - (2.86 * x.Thickness))).GreaterThan(0).WithMessage("Invalid side-thickness ratio.");
+                RuleFor(x => x.Diameter)
+                    .GreaterThan(0)
+                    .WithName("diameter")
+                    .WithErrorCode(ErrorCodes.GreaterThanZero.ToString());
+                RuleFor(x => x.Density)
+                    .GreaterThan(0)
+                    .WithName("density")
+                    .WithErrorCode(ErrorCodes.GreaterThanZero.ToString());
             });
 
             RuleSet("Weight", () =>
             {
-                RuleFor(x => x.Weight).GreaterThan(0).WithName("weight");
+                RuleFor(x => x.Weight)
+                    .GreaterThan(0)
+                    .WithName("weight")
+                    .WithErrorCode(ErrorCodes.GreaterThanZero.ToString());
             });
 
             RuleSet("Length", () =>
             {
-                RuleFor(x => x.Length).GreaterThan(0).WithName("length");
+                RuleFor(x => x.Length)
+                    .GreaterThan(0)
+                    .WithName("length")
+                    .WithErrorCode(ErrorCodes.GreaterThanZero.ToString());
             });
         }
     }

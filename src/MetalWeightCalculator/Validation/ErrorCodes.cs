@@ -19,30 +19,21 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace MetalWeightCalculator.Bar.Validators
+namespace MetalWeightCalculator
 {
-    using FluentValidation;
-    using MetalWeightCalculator.Bar.Arguments;
-
-    internal class RoundBarValidator : AbstractValidator<RoundBarArgument>
+    /// <summary>
+    /// Possible human readable error codes.
+    /// </summary>
+    public enum ErrorCodes
     {
-        public RoundBarValidator()
-        {
-            RuleSet("Common", () =>
-            {
-                RuleFor(x => x.Diameter).GreaterThan(0).WithName("diameter");
-                RuleFor(x => x.Density).GreaterThan(0).WithName("density");
-            });
+        /// <summary>
+        /// Argument must be greater than zero.
+        /// </summary>
+        GreaterThanZero,
 
-            RuleSet("Weight", () =>
-            {
-                RuleFor(x => x.Weight).GreaterThan(0).WithName("weight");
-            });
-
-            RuleSet("Length", () =>
-            {
-                RuleFor(x => x.Length).GreaterThan(0).WithName("length");
-            });
-        }
+        /// <summary>
+        /// Invalid argument ratio. For instance, in case of round pipe, thickness is greater than diameter.
+        /// </summary>
+        InvalidRatio,
     }
 }

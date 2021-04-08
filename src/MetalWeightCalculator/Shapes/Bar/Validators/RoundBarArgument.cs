@@ -19,13 +19,11 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace MetalWeightCalculator.Pipe.Arguments
+namespace MetalWeightCalculator.Shapes.Bar.Arguments
 {
-    internal class SquarePipeArgument
+    internal class RoundBarArgument
     {
-        public double Side { get; set; }
-
-        public double Thickness { get; set; }
+        public double Diameter { get; set; }
 
         public double Weight { get; set; }
 
@@ -33,10 +31,9 @@ namespace MetalWeightCalculator.Pipe.Arguments
 
         public double Density { get; set; }
 
-        public SquarePipeArgument(double side, double thickness, double weight, double length, double density)
+        public RoundBarArgument(double diameter, double weight, double length, double density)
         {
-            Side = side;
-            Thickness = thickness;
+            Diameter = diameter;
             Weight = weight;
             Length = length;
             Density = density;

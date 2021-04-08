@@ -19,24 +19,44 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace MetalWeightCalculator.Bar.Arguments
+namespace MetalWeightCalculator
 {
-    internal class RoundBarArgument
+    using System;
+
+    /// <summary>
+    /// Represents an error item occured during the argument validation.
+    /// </summary>
+    public class ValidationError
     {
-        public double Diameter { get; set; }
+        /// <summary>
+        /// Gets the name of the argument.
+        /// </summary>
+        public string ArgumentName { get; private set; }
 
-        public double Weight { get; set; }
+        /// <summary>
+        /// Gets the error message.
+        /// </summary>
+        public string ErrorMessage { get; private set; }
 
-        public double Length { get; set; }
+        /// <summary>
+        /// Gets the error code.
+        /// </summary>
+        public ErrorCodes ErrorCode { get; private set; }
 
-        public double Density { get; set; }
-
-        public RoundBarArgument(double diameter, double weight, double length, double density)
+        internal ValidationError(string argumentName, string errorMessage, ErrorCodes errorCode)
         {
-            Diameter = diameter;
-            Weight = weight;
-            Length = length;
-            Density = density;
+            if(string.IsNullOrEmpty(argumentName))
+            {
+                throw new ArgumentException("Argument name can't be null.");
+            }
+
+            ArgumentName = argumentName;
+            ErrorMessage = errorMessage ?? string.Empty;
+            ErrorCode = errorCode;
+        }
+
+        private ValidationError()
+        {
         }
     }
 }

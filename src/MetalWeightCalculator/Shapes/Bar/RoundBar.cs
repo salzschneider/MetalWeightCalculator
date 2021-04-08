@@ -23,8 +23,8 @@ namespace MetalWeightCalculator
 {
     using System;
     using FluentValidation;
-    using MetalWeightCalculator.Bar.Arguments;
-    using MetalWeightCalculator.Bar.Validators;
+    using MetalWeightCalculator.Shapes.Bar.Arguments;
+    using MetalWeightCalculator.Shapes.Bar.Validators;
 
     /// <summary>
     /// Calculating the weight or length of a round bar made of different metals (steel pipes, stainless steel, copper, etc.).

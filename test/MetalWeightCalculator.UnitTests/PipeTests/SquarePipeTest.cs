@@ -22,9 +22,6 @@
 namespace MetalWeightCalculator.UnitTests
 {
     using MetalWeightCalculator;
-    using System;
-    using System.Diagnostics;
-    using System.Linq;
     using Xunit;
 
     public class SquarePipeTest

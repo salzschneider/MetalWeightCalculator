@@ -4,6 +4,11 @@
         <name>MetalWeightCalculator</name>
     </assembly>
     <members>
+        <member name="T:MetalWeightCalculator.Density">
+            <summary>
+            Metal density table.
+            </summary>
+        </member>
         <member name="T:MetalWeightCalculator.RoundBar">
             <summary>
             Calculating the weight or length of a round bar made of different metals (steel pipes, stainless steel, copper, etc.).
@@ -28,31 +33,6 @@
             <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
             <returns>Lenght of a round bar in millimetres.</returns>
             <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
-        </member>
-        <member name="T:MetalWeightCalculator.Density">
-            <summary>
-            Metal density table.
-            </summary>
-        </member>
-        <member name="F:MetalWeightCalculator.ErrorCodes.GreaterThanZero">
-            <summary>
-            Argument must be greater than zero.
-            </summary>
-        </member>
-        <member name="F:MetalWeightCalculator.ErrorCodes.InvalidRatio">
-            <summary>
-            Invalid argument ratio.
-            </summary>
-        </member>
-        <member name="T:MetalWeightCalculator.InvalidArgumentsException">
-            <summary>
-            Represents an error set during the argument validation.
-            </summary>
-        </member>
-        <member name="P:MetalWeightCalculator.InvalidArgumentsException.ValidationErrors">
-            <summary>
-            Gets all error item found during the argument validation.
-            </summary>
         </member>
         <member name="T:MetalWeightCalculator.RectangularPipe">
             <summary>
@@ -148,9 +128,34 @@
             </summary>
             <param name="results">Argument validation result.</param>
         </member>
+        <member name="T:MetalWeightCalculator.ErrorCodes">
+            <summary>
+            Possible human readable error codes.
+            </summary>
+        </member>
+        <member name="F:MetalWeightCalculator.ErrorCodes.GreaterThanZero">
+            <summary>
+            Argument must be greater than zero.
+            </summary>
+        </member>
+        <member name="F:MetalWeightCalculator.ErrorCodes.InvalidRatio">
+            <summary>
+            Invalid argument ratio. For instance, in case of round pipe, thickness is greater than diameter.
+            </summary>
+        </member>
+        <member name="T:MetalWeightCalculator.InvalidArgumentsException">
+            <summary>
+            Represents an error set occured during the argument validation.
+            </summary>
+        </member>
+        <member name="P:MetalWeightCalculator.InvalidArgumentsException.ValidationErrors">
+            <summary>
+            Gets all error items found during the argument validation.
+            </summary>
+        </member>
         <member name="T:MetalWeightCalculator.ValidationError">
             <summary>
-            Represents an error item during the argument validation.
+            Represents an error item occured during the argument validation.
             </summary>
         </member>
         <member name="P:MetalWeightCalculator.ValidationError.ArgumentName">

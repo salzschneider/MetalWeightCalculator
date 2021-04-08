@@ -19,27 +19,24 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace MetalWeightCalculator.Pipe.Arguments
+namespace MetalWeightCalculator
 {
-    internal class RoundPipeArgument
+    using System;
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// Represents an error set occured during the argument validation.
+    /// </summary>
+    public class InvalidArgumentsException : ArgumentException
     {
-        public double Diameter { get; set; }
+        /// <summary>
+        /// Gets all error items found during the argument validation.
+        /// </summary>
+        public List<ValidationError> ValidationErrors { get; internal set; }
 
-        public double Thickness { get; set; }
-
-        public double Weight { get; set; }
-
-        public double Length { get; set; }
-
-        public double Density { get; set; }
-
-        public RoundPipeArgument(double diameter, double thickness, double weight, double length, double density)
+        public InvalidArgumentsException(string errorMessage)
+            : base(errorMessage)
         {
-            Diameter = diameter;
-            Thickness = thickness;
-            Weight = weight;
-            Length = length;
-            Density = density;
         }
     }
 }

@@ -19,44 +19,27 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace MetalWeightCalculator
+namespace MetalWeightCalculator.Shapes.Pipe.Arguments
 {
-    using System;
-
-    /// <summary>
-    /// Represents an error item during the argument validation.
-    /// </summary>
-    public class ValidationError
+    internal class SquarePipeArgument
     {
-        /// <summary>
-        /// Gets the name of the argument.
-        /// </summary>
-        public string ArgumentName { get; private set; }
+        public double Side { get; set; }
 
-        /// <summary>
-        /// Gets the error message.
-        /// </summary>
-        public string ErrorMessage { get; private set; }
+        public double Thickness { get; set; }
 
-        /// <summary>
-        /// Gets the error code.
-        /// </summary>
-        public ErrorCodes ErrorCode { get; private set; }
+        public double Weight { get; set; }
 
-        internal ValidationError(string argumentName, string errorMessage, ErrorCodes errorCode)
+        public double Length { get; set; }
+
+        public double Density { get; set; }
+
+        public SquarePipeArgument(double side, double thickness, double weight, double length, double density)
         {
-            if(string.IsNullOrEmpty(argumentName))
-            {
-                throw new ArgumentException("Argument name can't be null.");
-            }
-
-            ArgumentName = argumentName;
-            ErrorMessage = errorMessage ?? string.Empty;
-            ErrorCode = errorCode;
-        }
-
-        private ValidationError()
-        {
+            Side = side;
+            Thickness = thickness;
+            Weight = weight;
+            Length = length;
+            Density = density;
         }
     }
 }
