@@ -22,8 +22,6 @@
 namespace MetalWeightCalculator.UnitTests
 {
     using System;
-    using System.Collections.Generic;
-    using FluentValidation.Results;
     using MetalWeightCalculator;
     using Xunit;
 
