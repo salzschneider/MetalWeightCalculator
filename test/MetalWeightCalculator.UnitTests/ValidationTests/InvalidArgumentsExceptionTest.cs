@@ -33,11 +33,12 @@ namespace MetalWeightCalculator.UnitTests
         [InlineData(-11.22, 2, 1000, 1)]
         public void InvalidArgumentsException_GraterThanZeroProblemDiameter_ValidationErrors(double diameter, double thickness, double length, double density)
         {
-            // arrange, act, assert
+            // arrange, act
             var exception = Assert.Throws<InvalidArgumentsException>(() => RoundPipe.CalculateWeight(diameter, thickness, length, density));
             var validationErrors = exception.ValidationErrors;
             var validationError = validationErrors.First();
 
+            // assert
             Assert.Equal("diameter", validationError.ArgumentName);
             Assert.Equal(ErrorCodes.GreaterThanZero, validationError.ErrorCode);
             Assert.NotNull(validationErrors);
@@ -49,11 +50,12 @@ namespace MetalWeightCalculator.UnitTests
         [InlineData(100, -22.22, 1000, 1)]
         public void InvalidArgumentsException_GraterThanZeroProblemThickness_ValidationErrors(double diameter, double thickness, double length, double density)
         {
-            // arrange, act, assert
+            // arrange, act
             var exception = Assert.Throws<InvalidArgumentsException>(() => RoundPipe.CalculateWeight(diameter, thickness, length, density));
             var validationErrors = exception.ValidationErrors;
             var validationError = validationErrors.First();
 
+            // assert
             Assert.Equal("thickness", validationError.ArgumentName);
             Assert.Equal(ErrorCodes.GreaterThanZero, validationError.ErrorCode);
             Assert.NotNull(validationErrors);
@@ -65,11 +67,12 @@ namespace MetalWeightCalculator.UnitTests
         [InlineData(100, 1000, 1000, 1)]
         public void InvalidArgumentsException_InvalidRatioProblem_ValidationErrors(double diameter, double thickness, double length, double density)
         {
-            // arrange, act, assert
+            // arrange, act
             var exception = Assert.Throws<InvalidArgumentsException>(() => RoundPipe.CalculateWeight(diameter, thickness, length, density));
             var validationErrors = exception.ValidationErrors;
             var validationError = validationErrors.First();
 
+            // assert
             Assert.Equal("diameter", validationError.ArgumentName);
             Assert.Equal(ErrorCodes.InvalidRatio, validationError.ErrorCode);
             Assert.NotNull(validationErrors);

@@ -34,6 +34,31 @@
             <returns>Lenght of a round bar in millimetres.</returns>
             <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
+        <member name="T:MetalWeightCalculator.SquareBar">
+            <summary>
+            Calculating the weight or length of a Square bar made of different metals (steel pipes, stainless steel, copper, etc.).
+            </summary>
+        </member>
+        <member name="M:MetalWeightCalculator.SquareBar.CalculateWeight(System.Double,System.Double,System.Double)">
+            <summary>
+            Calculating the weight of a Square bar.
+            </summary>
+            <param name="size">Size in millimetres.</param>
+            <param name="length">Length in millimetres.</param>
+            <param name="density">Density of the metal from which the Square bar is made in g/cm³.</param>
+            <returns>Weight of a Square bar in kilograms.</returns>
+            <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+        </member>
+        <member name="M:MetalWeightCalculator.SquareBar.CalculateLength(System.Double,System.Double,System.Double)">
+            <summary>
+            Calculating the lenght of a Square bar.
+            </summary>
+            <param name="size">Size in millimetres.</param>
+            <param name="weight">Weight in kilograms.</param>
+            <param name="density">Density of the metal from which the Square bar is made in g/cm³.</param>
+            <returns>Lenght of a Square bar in millimetres.</returns>
+            <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+        </member>
         <member name="T:MetalWeightCalculator.RectangularPipe">
             <summary>
             Calculating the weight or length of a rectangular pipe made of different metals (steel pipes, stainless steel, copper, etc.).

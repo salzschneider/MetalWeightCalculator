@@ -69,7 +69,7 @@ namespace MetalWeightCalculator.UnitTests
         [InlineData(2500, 192667.98695843652, 7.85, 5000)]
         [InlineData(1000, 2136.2830044410593, 2.72, 1000.0000000000001)]
         [InlineData(2500, 66758.8438887831, 2.72, 5000)]
-        public void CalculateLength_ValidParameters_Weight(double diameter, double weight, double density, double expected)
+        public void CalculateLength_ValidParameters_Length(double diameter, double weight, double density, double expected)
         {
             // arrange, act
             var actual = RoundBar.CalculateLength(diameter, weight, density);
@@ -83,7 +83,7 @@ namespace MetalWeightCalculator.UnitTests
         [InlineData(2500, 192667.98695843652, Density.Steel, 5000)]
         [InlineData(1000, 2136.2830044410593, Density.Aluminium, 1000.0000000000001)]
         [InlineData(2500, 66758.8438887831, Density.Aluminium, 5000)]
-        public void CalculateLength_ValidParametersWithMaterialName_Weight(double diameter, double weight, double density, double expected)
+        public void CalculateLength_ValidParametersWithMaterialName_Length(double diameter, double weight, double density, double expected)
         {
             // arrange, act
             var actual = RoundBar.CalculateLength(diameter, weight, density);
