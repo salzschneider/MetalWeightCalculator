@@ -43,7 +43,7 @@ namespace MetalWeightCalculator
         /// </summary>
         public ErrorCodes ErrorCode { get; private set; }
 
-        internal ValidationError(string argumentName, string errorMessage, ErrorCodes errorCode)
+        public ValidationError(string argumentName, string errorMessage, ErrorCodes errorCode)
         {
             if(string.IsNullOrEmpty(argumentName))
             {
