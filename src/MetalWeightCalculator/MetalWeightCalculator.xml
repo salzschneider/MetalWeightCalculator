@@ -11,7 +11,7 @@
         </member>
         <member name="T:MetalWeightCalculator.LShapedAngle">
             <summary>
-            Calculating the weight or length of a Square bar made of different metals (steel pipes, stainless steel, copper, etc.).
+            Calculating the weight or length of a L-Shaped angle made of different metals (steel pipes, stainless steel, copper, etc.).
             </summary>
         </member>
         <member name="M:MetalWeightCalculator.LShapedAngle.CalculateWeight(System.Double,System.Double,System.Double,System.Double,System.Double)">
@@ -36,6 +36,37 @@
             <param name="weight">Weight in kilograms.</param>
             <param name="density">Density of the metal from which the L-Shaped angle is made in g/cm³.</param>
             <returns>Lenght of a L-Shaped angle in millimetres.</returns>
+            <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+        </member>
+        <member name="T:MetalWeightCalculator.TShapedAngle">
+            <summary>
+            Calculating the weight or length of a T-Shaped angle made of different metals (steel pipes, stainless steel, copper, etc.).
+            </summary>
+        </member>
+        <member name="M:MetalWeightCalculator.TShapedAngle.CalculateWeight(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Calculating the weight of a T-Shaped angle.
+            </summary>
+            <param name="height">Size (vertical) from bottom to top in millimetres.</param>
+            <param name="flangeWidth">Flange width of the T-shape in millimetres.</param>
+            <param name="flangeThickness">Average thickness of the flange of the T-shape in millimetres.</param>
+            <param name="stemThickness">Thickness of the stem of the T-shape in millimetres.</param>
+            <param name="length">Length in millimetres.</param>
+            <param name="density">Density of the metal from which the T-Shaped angle is made in g/cm³.</param>
+            <returns>Weight of a T-Shaped angle in kilograms.</returns>
+            <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
+        </member>
+        <member name="M:MetalWeightCalculator.TShapedAngle.CalculateLength(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Calculating the lenght of a T-Shaped angle.
+            </summary>
+            <param name="height">Size (vertical) from bottom to top in millimetres.</param>
+            <param name="flangeWidth">Flange width of the T-shape in millimetres.</param>
+            <param name="flangeThickness">Average thickness of the flange of the T-shape in millimetres.</param>
+            <param name="stemThickness">Thickness of the stem of the T-shape in millimetres.</param>
+            <param name="weight">Weight in kilograms.</param>
+            <param name="density">Density of the metal from which the T-Shaped angle is made in g/cm³.</param>
+            <returns>Lenght of a T-Shaped angle in millimetres.</returns>
             <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="T:MetalWeightCalculator.FlatBar">
@@ -92,27 +123,27 @@
         </member>
         <member name="T:MetalWeightCalculator.RoundBar">
             <summary>
-            Calculating the weight or length of a round bar made of different metals (steel pipes, stainless steel, copper, etc.).
+            Calculating the weight or length of a Round bar made of different metals (steel pipes, stainless steel, copper, etc.).
             </summary>
         </member>
         <member name="M:MetalWeightCalculator.RoundBar.CalculateWeight(System.Double,System.Double,System.Double)">
             <summary>
-            Calculating the weight of a round bar.
+            Calculating the weight of a Round bar.
             </summary>
             <param name="diameter">Diameter in millimetres.</param>
             <param name="length">Length in millimetres.</param>
-            <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
-            <returns>Weight of a round bar in kilograms.</returns>
+            <param name="density">Density of the metal from which the Round bar is made in g/cm³.</param>
+            <returns>Weight of a Round bar in kilograms.</returns>
             <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="M:MetalWeightCalculator.RoundBar.CalculateLength(System.Double,System.Double,System.Double)">
             <summary>
-            Calculating the lenght of a round bar.
+            Calculating the lenght of a Round bar.
             </summary>
             <param name="diameter">Diameter in millimetres.</param>
             <param name="weight">Weight in kilograms.</param>
-            <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
-            <returns>Lenght of a round bar in millimetres.</returns>
+            <param name="density">Density of the metal from which the Round bar is made in g/cm³.</param>
+            <returns>Lenght of a Round bar in millimetres.</returns>
             <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="T:MetalWeightCalculator.SquareBar">
@@ -142,85 +173,85 @@
         </member>
         <member name="T:MetalWeightCalculator.RectangularPipe">
             <summary>
-            Calculating the weight or length of a rectangular pipe made of different metals (steel pipes, stainless steel, copper, etc.).
+            Calculating the weight or length of a Rectangular pipe made of different metals (steel pipes, stainless steel, copper, etc.).
             </summary>
         </member>
         <member name="M:MetalWeightCalculator.RectangularPipe.CalculateWeight(System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Calculating the weight of a rectangular pipe.
+            Calculating the weight of a Rectangular pipe.
             </summary>
             <param name="sideA">Profile dimension A or side A size in millimetres.</param>
             <param name="sideB">Profile dimension B or side B size in millimetres.</param>
             <param name="thickness">Thickness in millimetres.</param>
             <param name="length">Length in millimetres.</param>
-            <param name="density">Density of the metal from which the rectangular pipe is made in g/cm³.</param>
-            <returns>Weight of a rectangular pipe in kilograms.</returns>
+            <param name="density">Density of the metal from which the Rectangular pipe is made in g/cm³.</param>
+            <returns>Weight of a Rectangular pipe in kilograms.</returns>
             <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="M:MetalWeightCalculator.RectangularPipe.CalculateLength(System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Calculating the length of a rectangular pipe.
+            Calculating the length of a Rectangular pipe.
             </summary>
             <param name="sideA">Profile dimension A or side A size in millimetres.</param>
             <param name="sideB">Profile dimension B or side B size in millimetres.</param>
             <param name="thickness">Thickness in millimetres.</param>
             <param name="weight">Weight in kilograms.</param>
-            <param name="density">Density of the metal from which the rectangular pipe is made in g/cm³.</param>
-            <returns>Lenght of a rectangular pipe in millimetres.</returns>
+            <param name="density">Density of the metal from which the Rectangular pipe is made in g/cm³.</param>
+            <returns>Lenght of a Rectangular pipe in millimetres.</returns>
             <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="T:MetalWeightCalculator.RoundPipe">
             <summary>
-            Calculating the weight or length of a round pipe made of different metals (steel pipes, stainless steel, copper, etc.).
+            Calculating the weight or length of a Round pipe made of different metals (steel pipes, stainless steel, copper, etc.).
             </summary>
         </member>
         <member name="M:MetalWeightCalculator.RoundPipe.CalculateWeight(System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Calculating the weight of a round pipe.
+            Calculating the weight of a Round pipe.
             </summary>
             <param name="diameter">Diameter in millimetres.</param>
             <param name="thickness">Thickness in millimetres.</param>
             <param name="length">Length in millimetres.</param>
-            <param name="density">Density of the metal from which the round pipe is made in g/cm³.</param>
-            <returns>Weight of a round pipe in kilograms.</returns>
+            <param name="density">Density of the metal from which the Round pipe is made in g/cm³.</param>
+            <returns>Weight of a Round pipe in kilograms.</returns>
             <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="M:MetalWeightCalculator.RoundPipe.CalculateLength(System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Calculating the length of a round pipe.
+            Calculating the length of a Round pipe.
             </summary>
             <param name="diameter">Diameter in millimetres.</param>
             <param name="thickness">Thickness in millimetres.</param>
             <param name="weight">Weight in kilograms.</param>
-            <param name="density">Density of the metal from which the round pipe is made in g/cm³.</param>
-            <returns>Lenght of a round pipe in millimetres.</returns>
+            <param name="density">Density of the metal from which the Round pipe is made in g/cm³.</param>
+            <returns>Lenght of a Round pipe in millimetres.</returns>
             <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="T:MetalWeightCalculator.SquarePipe">
             <summary>
-            Calculating the weight or length of a square pipe made of different metals (steel pipes, stainless steel, copper, etc.).
+            Calculating the weight or length of a Square pipe made of different metals (steel pipes, stainless steel, copper, etc.).
             </summary>
         </member>
         <member name="M:MetalWeightCalculator.SquarePipe.CalculateWeight(System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Calculating the weight of a square pipe.
+            Calculating the weight of a Square pipe.
             </summary>
             <param name="side">Profile dimension or side size in millimetres.</param>
             <param name="thickness">Thickness in millimetres.</param>
             <param name="length">Length in millimetres.</param>
-            <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
-            <returns>Weight of a square pipe in kilograms.</returns>
+            <param name="density">Density of the metal from which the Square pipe is made in g/cm³.</param>
+            <returns>Weight of a Square pipe in kilograms.</returns>
             <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="M:MetalWeightCalculator.SquarePipe.CalculateLength(System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Calculating the length of a square pipe.
+            Calculating the length of a Square pipe.
             </summary>
             <param name="side">Profile dimension or side size in millimetres.</param>
             <param name="thickness">Thickness in millimetres.</param>
             <param name="weight">Weight in kilograms.</param>
-            <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
-            <returns>Lenght of a square pipe in millimetres.</returns>
+            <param name="density">Density of the metal from which the Square pipe is made in g/cm³.</param>
+            <returns>Lenght of a Square pipe in millimetres.</returns>
             <exception cref="T:MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         </member>
         <member name="T:MetalWeightCalculator.Shape">

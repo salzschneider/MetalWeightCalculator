@@ -26,7 +26,7 @@ namespace MetalWeightCalculator
     using MetalWeightCalculator.Shapes.Pipe.Validators;
 
     /// <summary>
-    /// Calculating the weight or length of a square pipe made of different metals (steel pipes, stainless steel, copper, etc.).
+    /// Calculating the weight or length of a Square pipe made of different metals (steel pipes, stainless steel, copper, etc.).
     /// </summary>
     public class SquarePipe : Shape
     {
@@ -37,13 +37,13 @@ namespace MetalWeightCalculator
         }
 
         /// <summary>
-        /// Calculating the weight of a square pipe.
+        /// Calculating the weight of a Square pipe.
         /// </summary>
         /// <param name="side">Profile dimension or side size in millimetres.</param>
         /// <param name="thickness">Thickness in millimetres.</param>
         /// <param name="length">Length in millimetres.</param>
-        /// <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
-        /// <returns>Weight of a square pipe in kilograms.</returns>
+        /// <param name="density">Density of the metal from which the Square pipe is made in g/cm³.</param>
+        /// <returns>Weight of a Square pipe in kilograms.</returns>
         /// <exception cref="MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateWeight(double side, double thickness, double length, double density)
         {
@@ -59,13 +59,13 @@ namespace MetalWeightCalculator
         }
 
         /// <summary>
-        /// Calculating the length of a square pipe.
+        /// Calculating the length of a Square pipe.
         /// </summary>
         /// <param name="side">Profile dimension or side size in millimetres.</param>
         /// <param name="thickness">Thickness in millimetres.</param>
         /// <param name="weight">Weight in kilograms.</param>
-        /// <param name="density">Density of the metal from which the square pipe is made in g/cm³.</param>
-        /// <returns>Lenght of a square pipe in millimetres.</returns>
+        /// <param name="density">Density of the metal from which the Square pipe is made in g/cm³.</param>
+        /// <returns>Lenght of a Square pipe in millimetres.</returns>
         /// <exception cref="MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateLength(double side, double thickness, double weight, double density)
         {

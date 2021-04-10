@@ -27,7 +27,7 @@ namespace MetalWeightCalculator
     using MetalWeightCalculator.Shapes.Angle.Validators;
 
     /// <summary>
-    /// Calculating the weight or length of a Square bar made of different metals (steel pipes, stainless steel, copper, etc.).
+    /// Calculating the weight or length of a L-Shaped angle made of different metals (steel pipes, stainless steel, copper, etc.).
     /// </summary>
     public class LShapedAngle : Shape
     {
@@ -57,7 +57,7 @@ namespace MetalWeightCalculator
                 InvalidArgumentsHandler(results);
             }
 
-            return (height + width - thickness) / 1000 * thickness * length * density;
+            return (height + width - thickness) / 1000 * thickness * length * density / 1000;
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace MetalWeightCalculator
                 InvalidArgumentsHandler(results);
             }
 
-            return weight / ((height + width - thickness) / 1000 * thickness * density);
+            return weight / ((height + width - thickness) / 1000 * thickness * density / 1000);
         }
     }
 }

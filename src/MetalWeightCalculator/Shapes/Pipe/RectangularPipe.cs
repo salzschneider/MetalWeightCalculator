@@ -26,7 +26,7 @@ namespace MetalWeightCalculator
     using MetalWeightCalculator.Shapes.Pipe.Validators;
 
     /// <summary>
-    /// Calculating the weight or length of a rectangular pipe made of different metals (steel pipes, stainless steel, copper, etc.).
+    /// Calculating the weight or length of a Rectangular pipe made of different metals (steel pipes, stainless steel, copper, etc.).
     /// </summary>
     public class RectangularPipe : Shape
     {
@@ -37,14 +37,14 @@ namespace MetalWeightCalculator
         }
 
         /// <summary>
-        /// Calculating the weight of a rectangular pipe.
+        /// Calculating the weight of a Rectangular pipe.
         /// </summary>
         /// <param name="sideA">Profile dimension A or side A size in millimetres.</param>
         /// <param name="sideB">Profile dimension B or side B size in millimetres.</param>
         /// <param name="thickness">Thickness in millimetres.</param>
         /// <param name="length">Length in millimetres.</param>
-        /// <param name="density">Density of the metal from which the rectangular pipe is made in g/cm³.</param>
-        /// <returns>Weight of a rectangular pipe in kilograms.</returns>
+        /// <param name="density">Density of the metal from which the Rectangular pipe is made in g/cm³.</param>
+        /// <returns>Weight of a Rectangular pipe in kilograms.</returns>
         /// <exception cref="MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateWeight(double sideA, double sideB, double thickness, double length, double density)
         {
@@ -60,14 +60,14 @@ namespace MetalWeightCalculator
         }
 
         /// <summary>
-        /// Calculating the length of a rectangular pipe.
+        /// Calculating the length of a Rectangular pipe.
         /// </summary>
         /// <param name="sideA">Profile dimension A or side A size in millimetres.</param>
         /// <param name="sideB">Profile dimension B or side B size in millimetres.</param>
         /// <param name="thickness">Thickness in millimetres.</param>
         /// <param name="weight">Weight in kilograms.</param>
-        /// <param name="density">Density of the metal from which the rectangular pipe is made in g/cm³.</param>
-        /// <returns>Lenght of a rectangular pipe in millimetres.</returns>
+        /// <param name="density">Density of the metal from which the Rectangular pipe is made in g/cm³.</param>
+        /// <returns>Lenght of a Rectangular pipe in millimetres.</returns>
         /// <exception cref="MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateLength(double sideA, double sideB, double thickness, double weight, double density)
         {

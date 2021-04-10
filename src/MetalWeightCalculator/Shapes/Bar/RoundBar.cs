@@ -27,7 +27,7 @@ namespace MetalWeightCalculator
     using MetalWeightCalculator.Shapes.Bar.Validators;
 
     /// <summary>
-    /// Calculating the weight or length of a round bar made of different metals (steel pipes, stainless steel, copper, etc.).
+    /// Calculating the weight or length of a Round bar made of different metals (steel pipes, stainless steel, copper, etc.).
     /// </summary>
     public class RoundBar : Shape
     {
@@ -38,12 +38,12 @@ namespace MetalWeightCalculator
         }
 
         /// <summary>
-        /// Calculating the weight of a round bar.
+        /// Calculating the weight of a Round bar.
         /// </summary>
         /// <param name="diameter">Diameter in millimetres.</param>
         /// <param name="length">Length in millimetres.</param>
-        /// <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
-        /// <returns>Weight of a round bar in kilograms.</returns>
+        /// <param name="density">Density of the metal from which the Round bar is made in g/cm³.</param>
+        /// <returns>Weight of a Round bar in kilograms.</returns>
         /// <exception cref="MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateWeight(double diameter, double length, double density)
         {
@@ -59,12 +59,12 @@ namespace MetalWeightCalculator
         }
 
         /// <summary>
-        /// Calculating the lenght of a round bar.
+        /// Calculating the lenght of a Round bar.
         /// </summary>
         /// <param name="diameter">Diameter in millimetres.</param>
         /// <param name="weight">Weight in kilograms.</param>
-        /// <param name="density">Density of the metal from which the round bar is made in g/cm³.</param>
-        /// <returns>Lenght of a round bar in millimetres.</returns>
+        /// <param name="density">Density of the metal from which the Round bar is made in g/cm³.</param>
+        /// <returns>Lenght of a Round bar in millimetres.</returns>
         /// <exception cref="MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateLength(double diameter, double weight, double density)
         {

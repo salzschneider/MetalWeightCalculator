@@ -27,10 +27,10 @@ namespace MetalWeightCalculator.UnitTests
     public class LShapedAngleTest
     {
         [Theory]
-        [InlineData(100, 200, 10, 5000, 7.85, 113825)]
-        [InlineData(100, 200, 10, 5000, 2.72, 39440)]
-        [InlineData(222, 111, 8, 4500, 7.85, 91845)]
-        [InlineData(222, 111, 8, 4500, 2.72, 31824.000000000004)]
+        [InlineData(100, 200, 10, 5000, 7.85, 113.825)]
+        [InlineData(100, 200, 10, 5000, 2.72, 39.440)]
+        [InlineData(222, 111, 8, 4500, 7.85, 91.845)]
+        [InlineData(222, 111, 8, 4500, 2.72, 31.824000000000004)]
         public void CalculateWeight_ValidParameters_Weight(double height, double width, double thickness, double length, double density, double expected)
         {
             // arrange, act
@@ -63,10 +63,10 @@ namespace MetalWeightCalculator.UnitTests
         }
 
         [Theory]
-        [InlineData(100, 200, 10, 113825, 7.85, 5000.000000000001)]
-        [InlineData(100, 200, 10, 39440, 2.72, 5000)]
-        [InlineData(222, 111, 8, 91845, 7.85, 4500)]
-        [InlineData(222, 111, 8, 31824.000000000004, 2.72, 4500)]
+        [InlineData(100, 200, 10, 113.825, 7.85, 5000.000000000001)]
+        [InlineData(100, 200, 10, 39.440, 2.72, 5000)]
+        [InlineData(222, 111, 8, 91.845, 7.85, 4500)]
+        [InlineData(222, 111, 8, 31.824000000000004, 2.72, 4500)]
         public void CalculateLength_ValidParameters_Length(double height, double width, double thickness, double weight, double density, double expected)
         {
             // arrange, act
