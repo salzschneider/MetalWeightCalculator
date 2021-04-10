@@ -41,25 +41,11 @@ namespace MetalWeightCalculator.UnitTests
         }
 
         [Theory]
-        [InlineData(1000, 20, 1000, Density.Steel, 157)]
-        [InlineData(1000, 20, 1000, Density.Aluminium, 54.400000000000006)]
-        [InlineData(2500, 45, 5000, Density.Steel, 4415.625)]
-        [InlineData(2500, 45, 5000, Density.Aluminium, 1530)]
-        public void CalculateWeight_ValidParametersWithMaterialName_Weight(double size, double thickness, double length, double density, double expected)
-        {
-            // arrange, act
-            var actual = FlatBar.CalculateWeight(size, thickness, length, density);
-
-            // assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
         [InlineData(-1, 20, 1000, 7.85)]
         [InlineData(1000, -1, 1000, 7.85)]
         [InlineData(1000, 20, 0, 7.85)]
         [InlineData(1000, 20, 1000, 0)]
-        public void CalculateWeight_InvalidArguments_ThrowException(double size, double thickness, double length, double density)
+        public void CalculateWeight_ZeroOrLessArguments_ThrowException(double size, double thickness, double length, double density)
         {
             // arrange, act, assert
             Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => FlatBar.CalculateWeight(size, thickness, length, density));
@@ -80,25 +66,11 @@ namespace MetalWeightCalculator.UnitTests
         }
 
         [Theory]
-        [InlineData(1000, 20, 157, Density.Steel, 1000)]
-        [InlineData(1000, 20, 54.400000000000006, Density.Aluminium, 1000)]
-        [InlineData(2500, 45, 4415.625, Density.Steel, 5000)]
-        [InlineData(2500, 45, 1530, Density.Aluminium, 5000)]
-        public void CalculateLength_ValidParametersWithMaterialName_Length(double size, double thickness, double weight, double density, double expected)
-        {
-            // arrange, act
-            var actual = FlatBar.CalculateLength(size, thickness, weight, density);
-
-            // assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
         [InlineData(-1, 20, 1000, 7.85)]
         [InlineData(1000, -1, 1000, 7.85)]
         [InlineData(1000, 20, 0, 7.85)]
         [InlineData(1000, 20, 1000, 0)]
-        public void CalculateLength_InvalidArguments_ThrowException(double size, double thickness, double weight, double density)
+        public void CalculateLength_ZeroOrLessArguments_ThrowException(double size, double thickness, double weight, double density)
         {
             // arrange, act, assert
             Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => FlatBar.CalculateLength(size, thickness, weight, density));

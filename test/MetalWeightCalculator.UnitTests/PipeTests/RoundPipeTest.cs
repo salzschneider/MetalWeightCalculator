@@ -41,25 +41,11 @@ namespace MetalWeightCalculator.UnitTests
         }
 
         [Theory]
-        [InlineData(100, 10, 1000, Density.Steel, 22.195352097611888)]
-        [InlineData(222, 8, 5000, Density.Steel, 211.10245995061973)]
-        [InlineData(100, 10, 1000, Density.Aluminium, 7.690618815987815)]
-        [InlineData(500, 8, 5000, Density.Aluminium, 168.16819810960021)]
-        public void CalculateWeight_ValidParametersWithMaterialName_Weight(double diameter, double thickness, double length, double density, double expected)
-        {
-            // arrange, act
-            var actual = RoundPipe.CalculateWeight(diameter, thickness, length, density);
-
-            // assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
         [InlineData(-1, 2, 1000, 1)]
         [InlineData(100, 0, 1000, 1)]
         [InlineData(100, 2, -1, 1)]
         [InlineData(100, 2, 1000, 0)]
-        public void CalculateWeight_InvalidArguments_ThrowException(double diameter, double thickness, double length, double density)
+        public void CalculateWeight_ZeroOrLessArguments_ThrowException(double diameter, double thickness, double length, double density)
         {
             // arrange, act, assert
             Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => RoundPipe.CalculateWeight(diameter, thickness, length, density));
@@ -89,25 +75,11 @@ namespace MetalWeightCalculator.UnitTests
         }
 
         [Theory]
-        [InlineData(100, 10, 22.195352097611888, Density.Steel, 1000)]
-        [InlineData(222, 8, 211.10245995061973, Density.Steel, 5000)]
-        [InlineData(100, 10, 7.690618815987815, Density.Aluminium, 1000)]
-        [InlineData(500, 8, 168.16819810960021, Density.Aluminium, 5000)]
-        public void CalculateLength_ValidParametersWithMaterialName_Length(double diameter, double thickness, double weight, double density, double expected)
-        {
-            // arrange, act
-            var actual = RoundPipe.CalculateLength(diameter, thickness, weight, density);
-
-            // assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
         [InlineData(-1, 2, 1000, 1)]
         [InlineData(100, 0, 1000, 1)]
         [InlineData(100, 2, -1, 1)]
         [InlineData(100, 2, 1000, 0)]
-        public void CalculateLength_InvalidArguments_ThrowException(double diameter, double thickness, double length, double density)
+        public void CalculateLength_ZeroOrLessArguments_ThrowException(double diameter, double thickness, double length, double density)
         {
             // arrange, act, assert
             Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => RoundPipe.CalculateLength(diameter, thickness, length, density));

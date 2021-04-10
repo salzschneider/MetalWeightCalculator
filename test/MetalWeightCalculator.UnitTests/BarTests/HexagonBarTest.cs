@@ -44,7 +44,7 @@ namespace MetalWeightCalculator.UnitTests
         [InlineData(-1, 2, 1000)]
         [InlineData(100, 0, 1000)]
         [InlineData(100, 2, -1)]
-        public void CalculateWeight_InvalidArguments_ThrowException(double oppositeDistance, double length, double density)
+        public void CalculateWeight_ZeroOrLessArguments_ThrowException(double oppositeDistance, double length, double density)
         {
             // arrange, act, assert
             Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => HexagonBar.CalculateWeight(oppositeDistance, length, density));
@@ -68,7 +68,7 @@ namespace MetalWeightCalculator.UnitTests
         [InlineData(-1, 2, 1000)]
         [InlineData(100, 0, 1000)]
         [InlineData(100, 2, -1)]
-        public void CalculateLength_InvalidArguments_ThrowException(double oppositeDistance, double weight, double density)
+        public void CalculateLength_ZeroOrLessArguments_ThrowException(double oppositeDistance, double weight, double density)
         {
             // arrange, act, assert
             Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => HexagonBar.CalculateLength(oppositeDistance, weight, density));

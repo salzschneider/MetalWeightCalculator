@@ -24,41 +24,17 @@ namespace MetalWeightCalculator.UnitTests
     using MetalWeightCalculator;
     using Xunit;
 
-    public class SquareBarTest
+    public class DensityTest
     {
         [Theory]
-        [InlineData(1000, 1000, 7.85, 7850)]
-        [InlineData(1000, 1000, 2.72, 2720)]
-        [InlineData(2500, 5000, 7.85, 245312.5)]
-        [InlineData(2500, 5000, 2.72, 85000)]
-        public void CalculateWeight_ValidParameters_Weight(double size, double length, double density, double expected)
+        [InlineData(1000, 1000, Density.Steel, 7850)]
+        [InlineData(1000, 1000, Density.Aluminium, 2720)]
+        [InlineData(2500, 5000, Density.Steel, 245312.5)]
+        [InlineData(2500, 5000, Density.Aluminium, 85000)]
+        public void CalculateWeight_ValidParametersWithMaterialName_Weight(double size, double length, double density, double expected)
         {
             // arrange, act
             var actual = SquareBar.CalculateWeight(size, length, density);
-
-            // assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
-        [InlineData(-1, 2, 1000)]
-        [InlineData(100, 0, 1000)]
-        [InlineData(100, 2, -1)]
-        public void CalculateWeight_ZeroOrLessArguments_ThrowException(double size, double length, double density)
-        {
-            // arrange, act, assert
-            Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => SquareBar.CalculateWeight(size, length, density));
-        }
-
-        [Theory]
-        [InlineData(1000, 7850, 7.85, 1000)]
-        [InlineData(1000, 2720, 2.72, 1000)]
-        [InlineData(2500, 245312.5, 7.85, 5000)]
-        [InlineData(2500, 85000, 2.72, 5000)]
-        public void CalculateLength_ValidParameters_Length(double size, double weight, double density, double expected)
-        {
-            // arrange, act
-            var actual = SquareBar.CalculateLength(size, weight, density);
 
             // assert
             Assert.Equal(expected, actual);
@@ -76,16 +52,6 @@ namespace MetalWeightCalculator.UnitTests
 
             // assert
             Assert.Equal(expected, actual);
-        }
-
-        [Theory]
-        [InlineData(-1, 2, 1000)]
-        [InlineData(100, 0, 1000)]
-        [InlineData(100, 2, -1)]
-        public void CalculateLength_ZeroOrLessArguments_ThrowException(double size, double weight, double density)
-        {
-            // arrange, act, assert
-            Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => SquareBar.CalculateLength(size, weight, density));
         }
     }
 }

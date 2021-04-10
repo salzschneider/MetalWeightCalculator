@@ -41,25 +41,11 @@ namespace MetalWeightCalculator.UnitTests
         }
 
         [Theory]
-        [InlineData(100, 2, 6000, Density.Steel, 36.602351999999996)]
-        [InlineData(100, 2, 6000, Density.Aluminium, 12.682598400000002)]
-        [InlineData(250, 10, 10500, Density.Steel, 777.10289999999986)]
-        [InlineData(250, 10, 10500, Density.Aluminium, 269.26368)]
-        public void CalculateWeight_ValidParametersWithMaterialName_Weight(double side, double thickness, double length, double density, double expected)
-        {
-            // arrange, act
-            var actual = SquarePipe.CalculateWeight(side, thickness, length, density);
-
-            // assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
         [InlineData(-1, 2, 1000, 1)]
         [InlineData(100, 0, 1000, 1)]
         [InlineData(100, 2, -1, 1)]
         [InlineData(100, 2, 1000, 0)]
-        public void CalculateWeight_InvalidArguments_ThrowException(double side, double thickness, double length, double density)
+        public void CalculateWeight_ZeroOrLessArguments_ThrowException(double side, double thickness, double length, double density)
         {
             // arrange, act, assert
             Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => SquarePipe.CalculateWeight(side, thickness, length, density));
@@ -89,25 +75,11 @@ namespace MetalWeightCalculator.UnitTests
         }
 
         [Theory]
-        [InlineData(100, 2, 36.602351999999996, Density.Steel, 6000)]
-        [InlineData(100, 2, 12.682598400000002, Density.Aluminium, 6000)]
-        [InlineData(250, 10, 777.10289999999986, Density.Steel, 10500)]
-        [InlineData(250, 10, 269.26368, Density.Aluminium, 10500.000000000002)]
-        public void CalculateLength_ValidParametersWithMaterialName_Length(double side, double thickness, double weight, double density, double expected)
-        {
-            // arrange, act
-            var actual = SquarePipe.CalculateLength(side, thickness, weight, density);
-
-            // assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
         [InlineData(-1, 2, 1000, 1)]
         [InlineData(100, 0, 1000, 1)]
         [InlineData(100, 2, -1, 1)]
         [InlineData(100, 2, 1000, 0)]
-        public void CalculateLength_InvalidArguments_ThrowException(double side, double thickness, double weight, double density)
+        public void CalculateLength_ZeroOrLessArguments_ThrowException(double side, double thickness, double weight, double density)
         {
             // arrange, act, assert
             Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => SquarePipe.CalculateLength(side, thickness, weight, density));

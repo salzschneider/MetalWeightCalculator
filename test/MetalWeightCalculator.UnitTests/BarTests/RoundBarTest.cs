@@ -41,24 +41,10 @@ namespace MetalWeightCalculator.UnitTests
         }
 
         [Theory]
-        [InlineData(1000, 1000, Density.Steel, 6165.375582669969)]
-        [InlineData(2500, 5000, Density.Steel, 192667.98695843652)]
-        [InlineData(1000, 1000, Density.Aluminium, 2136.2830044410593)]
-        [InlineData(2500, 5000, Density.Aluminium, 66758.8438887831)]
-        public void CalculateWeight_ValidParametersWithMaterialName_Weight(double diameter, double length, double density, double expected)
-        {
-            // arrange, act
-            var actual = RoundBar.CalculateWeight(diameter, length, density);
-
-            // assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
         [InlineData(-1, 2, 1000)]
         [InlineData(100, 0, 1000)]
         [InlineData(100, 2, -1)]
-        public void CalculateWeight_InvalidArguments_ThrowException(double diameter, double length, double density)
+        public void CalculateWeight_ZeroOrLessArguments_ThrowException(double diameter, double length, double density)
         {
             // arrange, act, assert
             Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => RoundBar.CalculateWeight(diameter, length, density));
@@ -79,24 +65,10 @@ namespace MetalWeightCalculator.UnitTests
         }
 
         [Theory]
-        [InlineData(1000, 6165.375582669969, Density.Steel, 1000)]
-        [InlineData(2500, 192667.98695843652, Density.Steel, 5000)]
-        [InlineData(1000, 2136.2830044410593, Density.Aluminium, 1000.0000000000001)]
-        [InlineData(2500, 66758.8438887831, Density.Aluminium, 5000)]
-        public void CalculateLength_ValidParametersWithMaterialName_Length(double diameter, double weight, double density, double expected)
-        {
-            // arrange, act
-            var actual = RoundBar.CalculateLength(diameter, weight, density);
-
-            // assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
         [InlineData(-1, 2, 1000)]
         [InlineData(100, 0, 1000)]
         [InlineData(100, 2, -1)]
-        public void CalculateLenght_InvalidArguments_ThrowException(double diameter, double weight, double density)
+        public void CalculateLength_ZeroOrLessArguments_ThrowException(double diameter, double weight, double density)
         {
             // arrange, act, assert
             Assert.Throws<MetalWeightCalculator.InvalidArgumentsException>(() => RoundBar.CalculateLength(diameter, weight, density));
