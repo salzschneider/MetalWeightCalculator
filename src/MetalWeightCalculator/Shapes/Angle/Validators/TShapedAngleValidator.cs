@@ -58,7 +58,7 @@ namespace MetalWeightCalculator.Shapes.Angle.Validators
                 RuleFor(x => x.FlangeWidth - x.StemThickness)
                     .GreaterThan(0)
                     .WithMessage("Invalid flangeWidth-stemThickness ratio.")
-                    .WithName("height")
+                    .WithName("flangeWidth")
                     .WithErrorCode(ErrorCodes.InvalidRatio.ToString());
             });
 
