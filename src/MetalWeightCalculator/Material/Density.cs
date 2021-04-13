@@ -28,5 +28,12 @@ namespace MetalWeightCalculator
     {
         public const double Steel = 7.85;
         public const double Aluminium = 2.72;
+        public const double Copper = 8.94;
+        public const double Silver = 10.49;
+        public const double Lead = 11.33;
+        public const double Gold = 19.30;
+        public const double Tin = 7.30;
+        public const double Iron = 7.20;
+        public const double Zinc = 7.13;
     }
 }
