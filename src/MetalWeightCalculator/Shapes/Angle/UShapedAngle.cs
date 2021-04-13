@@ -26,18 +26,18 @@ namespace MetalWeightCalculator
     using MetalWeightCalculator.Shapes.Angle.Validators;
 
     /// <summary>
-    /// Calculating the weight or length of a I-Shaped angle made of different metals (steel pipes, stainless steel, copper, etc.).
+    /// Calculating the weight or length of a U-Shaped angle made of different metals (steel pipes, stainless steel, copper, etc.).
     /// </summary>
-    public class IShapedAngle : Shape
+    public class UShapedAngle : Shape
     {
         private static readonly IShapedAngleValidator Validator = new IShapedAngleValidator();
 
-        private IShapedAngle()
+        private UShapedAngle()
         {
         }
 
         /// <summary>
-        /// Calculating the weight of a I-Shaped angle.
+        /// Calculating the weight of a U-Shaped angle.
         /// </summary>
         /// <param name="height">Size (vertical) from bottom to top in millimetres.</param>
         /// <param name="topFlangeWidth">Top flange width of the I-shape in millimetres.</param>
@@ -46,8 +46,8 @@ namespace MetalWeightCalculator
         /// <param name="bottomFlangeThickness">Average thickness of the bottom flange of the I-shape in millimetres.</param>
         /// <param name="stemThickness">Thickness of the stem of the T-shape in millimetres.</param>
         /// <param name="length">Length in millimetres.</param>
-        /// <param name="density">Density of the metal from which the I-Shaped angle is made in g/cm³.</param>
-        /// <returns>Weight of a I-Shaped angle in kilograms.</returns>
+        /// <param name="density">Density of the metal from which the U-Shaped angle is made in g/cm³.</param>
+        /// <returns>Weight of a U-Shaped angle in kilograms.</returns>
         /// <exception cref="MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateWeight(
             double height,
@@ -73,7 +73,7 @@ namespace MetalWeightCalculator
         }
 
         /// <summary>
-        /// Calculating the lenght of a I-Shaped angle.
+        /// Calculating the lenght of a U-Shaped angle.
         /// </summary>
         /// <param name="height">Size (vertical) from bottom to top in millimetres.</param>
         /// <param name="topFlangeWidth">Top flange width of the I-shape in millimetres.</param>
@@ -82,8 +82,8 @@ namespace MetalWeightCalculator
         /// <param name="bottomFlangeThickness">Average thickness of the bottom flange of the I-shape in millimetres.</param>
         /// <param name="stemThickness">Thickness of the stem of the T-shape in millimetres.</param>
         /// <param name="weight">Weight in kilograms.</param>
-        /// <param name="density">Density of the metal from which the I-Shaped angle is made in g/cm³.</param>
-        /// <returns>Lenght of a I-Shaped angle in millimetres.</returns>
+        /// <param name="density">Density of the metal from which the U-Shaped angle is made in g/cm³.</param>
+        /// <returns>Lenght of a U-Shaped angle in millimetres.</returns>
         /// <exception cref="MetalWeightCalculator.InvalidArgumentsException">At least one of the passed arguments does not meet the parameter specification of the called method.</exception>
         public static double CalculateLength(
             double height,
