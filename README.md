@@ -1,4 +1,6 @@
 # MetalWeightCalculator
+[![Build Status](https://dev.azure.com/salzschneider/MetalWeightCalculator/_apis/build/status/salzschneider.MetalWeightCalculator?branchName=main)](https://dev.azure.com/salzschneider/MetalWeightCalculator/_build/latest?definitionId=4&branchName=main)
+
 Metal Weight Calculator is a fast and simple library for calculating weights or lengths of metals. 
 
 Packages
