@@ -11,7 +11,7 @@ Packages
 ## Target Frameworks
 
 - .NET Framework 4.5
-- .NET Standard2.0
+- .NET Standard 2.0
 
 Wiki
 ----------------

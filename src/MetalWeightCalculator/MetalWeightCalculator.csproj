@@ -11,6 +11,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>MetalWeight;Calculator</PackageTags>
     <RootNamespace>MetalWeightCalculator</RootNamespace>
+    <RepositoryUrl>https://github.com/salzschneider/MetalWeightCalculator</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
