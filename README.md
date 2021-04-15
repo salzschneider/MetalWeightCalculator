@@ -8,6 +8,12 @@ Packages
 - StyleCop.Analyzer v1.1.118
 - FluentValidation v8.6.3 (.NET Framework 4.5 support needed)
 
+## Target Frameworks
+
+- .NET Framework 4.5
+- .NET Standard2.0
+
 Wiki
 ----------------
+
 [Metal Weight Calculator Wiki](https://github.com/salzschneider/MetalWeightCalculator/wiki)
