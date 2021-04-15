@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 
 trigger:
-- main
+- master
 
 pool:
   vmImage: 'windows-latest'
@@ -15,6 +15,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+
+- powershell: |
+    dotnet --info
+  displayName: 'Dotnet installs'
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
@@ -32,3 +37,10 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    codeCoverageEnabled: True
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    testAssemblyVer2: |
+     **\MetalWeightCalculator.UnitTests.dll
+     !**\*TestAdapter.dll
+     !**\obj\**
+    runSettingsFile: '$(System.DefaultWorkingDirectory)/CodeCoverage.runsettings'
