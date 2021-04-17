@@ -40,11 +40,11 @@ namespace MetalWeightCalculator
         /// Calculating the weight of a U-Shaped angle.
         /// </summary>
         /// <param name="height">Size (vertical) from bottom to top in millimetres.</param>
-        /// <param name="topFlangeWidth">Top flange width of the I-shape in millimetres.</param>
-        /// <param name="topFlangeThickness">Average thickness of the top flange of the I-shape in millimetres.</param>
-        /// <param name="bottomFlangeWidth">Bottom flange width of the I-shape in millimetres.</param>
-        /// <param name="bottomFlangeThickness">Average thickness of the bottom flange of the I-shape in millimetres.</param>
-        /// <param name="stemThickness">Thickness of the stem of the T-shape in millimetres.</param>
+        /// <param name="topFlangeWidth">Top flange width of the U-shape in millimetres.</param>
+        /// <param name="topFlangeThickness">Average thickness of the top flange of the U-shape in millimetres.</param>
+        /// <param name="bottomFlangeWidth">Bottom flange width of the U-shape in millimetres.</param>
+        /// <param name="bottomFlangeThickness">Average thickness of the bottom flange of the U-shape in millimetres.</param>
+        /// <param name="stemThickness">Thickness of the stem of the U-shape in millimetres.</param>
         /// <param name="length">Length in millimetres.</param>
         /// <param name="density">Density of the metal from which the U-Shaped angle is made in g/cm³.</param>
         /// <returns>Weight of a U-Shaped angle in kilograms.</returns>
@@ -76,11 +76,11 @@ namespace MetalWeightCalculator
         /// Calculating the lenght of a U-Shaped angle.
         /// </summary>
         /// <param name="height">Size (vertical) from bottom to top in millimetres.</param>
-        /// <param name="topFlangeWidth">Top flange width of the I-shape in millimetres.</param>
-        /// <param name="topFlangeThickness">Average thickness of the top flange of the I-shape in millimetres.</param>
-        /// <param name="bottomFlangeWidth">Bottom flange width of the I-shape in millimetres.</param>
-        /// <param name="bottomFlangeThickness">Average thickness of the bottom flange of the I-shape in millimetres.</param>
-        /// <param name="stemThickness">Thickness of the stem of the T-shape in millimetres.</param>
+        /// <param name="topFlangeWidth">Top flange width of the U-shape in millimetres.</param>
+        /// <param name="topFlangeThickness">Average thickness of the top flange of the U-shape in millimetres.</param>
+        /// <param name="bottomFlangeWidth">Bottom flange width of the U-shape in millimetres.</param>
+        /// <param name="bottomFlangeThickness">Average thickness of the bottom flange of the U-shape in millimetres.</param>
+        /// <param name="stemThickness">Thickness of the stem of the U-shape in millimetres.</param>
         /// <param name="weight">Weight in kilograms.</param>
         /// <param name="density">Density of the metal from which the U-Shaped angle is made in g/cm³.</param>
         /// <returns>Lenght of a U-Shaped angle in millimetres.</returns>
